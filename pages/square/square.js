@@ -79,7 +79,7 @@ Page({
   getReceivedHongbao: function () {
     var that = this;
     console.log(that.data.receivedHongbao.page)
-    my.httprequest({
+    my.httpRequest({
       url: config.publicHongbaoUrl,
       data: {
         token: login.getSession().session.token,

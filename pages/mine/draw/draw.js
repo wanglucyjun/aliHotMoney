@@ -75,19 +75,19 @@ Page({
     var userHongbao = that.data.userHongbao;
     value = value*1;
     if (!userHongbao.dayCanDraw){
-      wx.showToast({
+      my.showToast({
         title: "今日不可提现",
       })
       return false;
     }
     if (value > userHongbao.withdrawableMoney || value > userHongbao.oneTimesLimit) {
-      wx.showToast({
+      my.showToast({
         title: "提现额太大",
       })
       return false;
     }
     if (value < userHongbao.minWithdrawMoney) {
-      wx.showToast({
+      my.showToast({
         title: "提现额太小",
       })
       return false;
@@ -153,7 +153,7 @@ Page({
       console.log('1');
       if (userHongbao.needQCode==1){
         if (!that.data.tempFilePath){
-          wx.showToast({
+          my.showToast({
             title: "请选择收款码！",
           })
           return;
@@ -179,7 +179,7 @@ Page({
         that.data.drawdata.content = userHongbao.account;
       }
       if (!that.data.drawdata.content||that.data.drawdata.content==""){
-        wx.showToast({
+        my.showToast({
           title: "请输入微信号！",
         })
         return;
@@ -205,30 +205,30 @@ Page({
             console.log(res.data)
             if (res.data ){
               if (res.data.code == "0"){
-                wx.showModal({
+                my.alert({
                   title: '提示',
                   content: '提现申请成功，1～5个工作日到账',
-                  showCancel: false,
+                  buttonText: '我知道了',
                 });
                 that.refresh();
               }else{
-                wx.showToast({
+                my.showToast({
                   title: res.data.message,
                 })
               }
             }else{
-              wx.showModal({
+              wx.alert({
                 title: '提示',
                 content: res.data.message,
-                showCancel: false,
+                buttonText: '我知道了',
               })
             }
          }
           ,
           fail: function (res) {
-              wx.showToast({
+              my.showToast({
                 title: '提现失败，请稍后再试',
-                showCancel: false,
+               
               })
           }
         })
@@ -245,7 +245,7 @@ Page({
   },
   chooseImage:function(e){
     var that = this;
-    wx.chooseImage({
+    my.chooseImage({
       count:1,
       success: function (res) {
         that.data.tempFilePath=res.tempFilePaths[0];
