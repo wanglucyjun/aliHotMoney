@@ -1,7 +1,7 @@
 const config = require('../config')
 var utils = require('./util');
 
-var InitData_KEY = 'weapp_init_' + 'wxc5b3f7dd539abcff';    //WX_SESSION_MAGIC_ID
+var InitData_KEY = 'weapp_init_' + '2018020202130257';    //WX_SESSION_MAGIC_ID
 var noop = function noop() { };
 var defaultOptions = {
   method: 'GET',
@@ -24,7 +24,7 @@ var InitData = {
 var init = function (options) {
   console.log('init')
   options = utils.extend({}, defaultOptions, options);
-  wx.request({
+  my.httpRequest({
     url: config.initUrl,
     success: function (res) {
       console.log(res.data)
