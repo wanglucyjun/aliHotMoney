@@ -11,7 +11,7 @@
       <view class='header_yue'>余额:￥{{userHongbao.allMoney}}</view>
       <view class='header_yue'>可提:￥{{userHongbao.withdrawableMoney}}</view>
     </view>
-    <view class='header_right fr'  bindtap="getMoney">
+    <view class='header_right fr'  onTap="getMoney">
         <image src='../image/hot.png' mode='widthFix' class='hotMoney_tu'></image>
         <view class='header-right_tixian'>提现</view>
      </view>
@@ -24,9 +24,9 @@
 </view>
 
     <view class='nav'>
-      <text class="nav_con {{mineRecod==1? 'on':''}}" data-num="1" bindtap='changeTab'>我发出的</text>
-      <text class="nav_con {{mineRecod==2? 'on':''}}" data-num="2" bindtap='changeTab'>我收到的</text>
-      <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" bindtap='changeTab'>我提现的</text>
+      <text class="nav_con {{mineRecod==1? 'on':''}}" data-num="1" onTap='changeTab'>我发出的</text>
+      <text class="nav_con {{mineRecod==2? 'on':''}}" data-num="2" onTap='changeTab'>我收到的</text>
+      <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" onTap='changeTab'>我提现的</text>
     </view>
     <view class='content'>
     <view class='content_bottom'  a:if="{{mineRecod==1}}"  >
@@ -70,7 +70,7 @@
        <block a:for="{{sendedHongbao.list}}"  a:key="id" a:for-index="idx" a:for-item="item" data-idx="{{idx}}" >
       
       <view class='sended-list-item' >
-        <view class='sended-list-item-box'  data-hongbaoid='{{item.id}}' bindtap='toShare'>
+        <view class='sended-list-item-box'  data-hongbaoid='{{item.id}}' onTap='toShare'>
           <view class='sended-list-item-center fl'>
             <text class='sended-list-item-money' a:if="{{item.type==1}}">摇摇包  </text>
             <text class='sended-list-item-money' a:if="{{item.type==2}}">口令包  </text>
@@ -90,7 +90,7 @@
  <view  a:if="{{mineRecod==2}}" >
        <block a:for="{{receivedHongbao.list}}"  a:key="id" a:for-index="idx" a:for-item="item" data-idx="{{idx}}" >
       <view class='received-list-item' >
-        <view class='received-list-item-box'  data-hongbaoid='{{item.id}}' bindtap='toShare'>
+        <view class='received-list-item-box'  data-hongbaoid='{{item.id}}' onTap='toShare'>
           <view class='received-list-item-left fl'>
           <image src='{{item.icon}}' mode='widthFix' class='received-list-item-logo'></image>
           </view>
@@ -130,7 +130,7 @@
       </view>
       </block>
  </view>
- <view class='reload-page' bindtap='onReachBottom'>
+ <view class='reload-page' onTap='onReachBottom'>
         <text>点击加载下一页</text>
  </view>
   </view>

@@ -1,8 +1,8 @@
 {
      "enablePullDownRefresh": true,
       "backgroundTextStyle": "light",
-      "navigationBarBackgroundColor": "#D95940",
-      "navigationBarTitleText": "包包乐翻天—我的",
+      "titleBarColor": "#D95940",
+      "defaultTitle": "包包乐翻天—我的",
       "navigationBarTextStyle": "#fff"
     
 }

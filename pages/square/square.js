@@ -60,7 +60,7 @@ Page({
   onPullDownRefresh: function () {
     console.log("onPullDownRefresh")
     this.refresh()
-    wx.stopPullDownRefresh()
+    my.stopPullDownRefresh()
   },
 
   /**
@@ -79,7 +79,7 @@ Page({
   getReceivedHongbao: function () {
     var that = this;
     console.log(that.data.receivedHongbao.page)
-    wx.request({
+    my.httpRequest({
       url: config.publicHongbaoUrl,
       data: {
         token: login.getSession().session.token,
@@ -130,13 +130,13 @@ Page({
     //var filePath = obj.currentTarget.id
     console.log(obj)
     console.log(obj.currentTarget.dataset.hongbaoid)
-    wx.navigateTo({
+    my.navigateTo({
       url: '/pages/index/Share/Share?id=' + obj.currentTarget.dataset.hongbaoid,
     })
   },
   openOther:function(obj){
     if (obj.currentTarget.dataset.appid){
-      wx.navigateToMiniProgram({
+      my.navigateToMiniProgram({
         appId: obj.currentTarget.dataset.appid,
         success(res) {
           // 打开成功

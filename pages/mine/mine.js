@@ -71,7 +71,7 @@ Page({
   onPullDownRefresh: function () {
     console.log("onPullDownRefresh")
     this.refresh()
-    wx.stopPullDownRefresh()
+    my.stopPullDownRefresh()
   },
 
   /**
@@ -92,7 +92,7 @@ Page({
   getDrawlist: function () {
     var that = this;
     console.log(that.data.drawlist)
-    wx.request({
+    my.httpRequest({
       url: config.drawListUrl,
       data: {
         token: login.getSession().session.token,
@@ -129,7 +129,7 @@ Page({
   getReceivedHongbao:function(){
     var that = this;
     console.log(that.data.receivedHongbao.page)
-    wx.request({
+    my.httpRequest({
       url: config.hongbaoReceivedUrl,
       data: {
         token: login.getSession().session.token,
@@ -165,7 +165,7 @@ Page({
   },
   getSendedHongbao: function() {
     var that = this;
-    wx.request({
+    my.httpRequest({
       url: config.hongbaoSendedUrl,
       data: {
         token: login.getSession().session.token,
@@ -220,7 +220,7 @@ Page({
     //var filePath = obj.currentTarget.id
     console.log(obj)
     console.log(obj.currentTarget.dataset.hongbaoid)
-    wx.navigateTo({
+    my.navigateTo({
       url: '/pages/index/Share/Share?id=' + obj.currentTarget.dataset.hongbaoid,
     })
   },
@@ -228,12 +228,12 @@ Page({
    * 提现交互
    */
   getMoney:function(){
-    wx.navigateTo({
+    my.navigateTo({
       url: 'draw/draw',
     })
   },
   showHelp:function(){
-    wx.navigateTo({
+    my.navigateTo({
       url: 'help/help',
     })
   }

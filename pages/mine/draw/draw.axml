@@ -1,4 +1,4 @@
-a:<view class='container'>
+<view class='container'>
 <view class='draw_box'>
   <view class='balance'> 
     <view class='draw_text fl'>账户余额</view>
@@ -12,19 +12,19 @@ a:<view class='container'>
   <view class='setHotMoney_detail' >
     <view class='setHotMoney_name fl' >￥</view>
     <input type='digit'  class='hotInput'
-                     bindblur='MoneyInput'a:if="{{userHongbao.dayCanDraw==1}}" value='{{money}}'></input>
+                    onBlur='MoneyInput'a:if="{{userHongbao.dayCanDraw==1}}" value='{{money}}'></input>
     <view class='setHotMoney_name' a:if="{{userHongbao.dayCanDraw==0}}" ><text class='draw_text4'>今天不可以提现</text></view>
   </view>
   <view  class='draw_text2'>手续费{{drawfee}}，实际到账{{actualfee}}，<text>全部提现</text></view>
 
   <view  class='draw_text5'>提现金额最小为{{userHongbao.minWithdrawMoney}}元，最大为{{userHongbao.oneTimesLimit}}元，由于商户号期限原因，暂时不支持提现到零钱，初创企业，多多包涵</view>
   <view class='draw_text'>提现方式</view>
-   <radio-group bindchange="radioChange">
+   <radio-group onChange="radioChange">
         <view class="draw-item">
         <radio value="1" 
          checked='true'>收款码</radio>
     <view class='qcode fr' a:if="{{drawdata.type==1&&userHongbao.needQCode==1}}" >
-      <view class='qcode-select ' bindtap='chooseImage' >选择收款码</view>
+      <view class='qcode-select ' onTap='chooseImage' >选择收款码</view>
     </view>
         </view>
         <view class="draw-item">
@@ -39,7 +39,7 @@ a:<view class='container'>
   <view class='account' a:if="{{drawdata.type==2&&userHongbao.needAccount==1}}">
     <view class='account-name fl' >微信号：</view>
     <input  type='text' placeholder='请输入微信号' class='account-value'
-                     bindinput='accountInput' ></input>
+                     onInput='accountInput' ></input>
   </view>
   <view class='account' a:if="{{drawdata.type==1}}">
     <text  class='draw_text4'>客服扫描收款码后支付</text>
@@ -51,7 +51,7 @@ a:<view class='container'>
     <text  class='draw_text4'>暂时不支持直接提现到零钱</text>
   </view>
   <view class='disdraw' a:if="{{!canDraw}}" >申请提现</view>
-  <view class='draw' bindtap="applyGetMoney" a:if="{{canDraw}}">申请提现</view>
+  <view class='draw' onTap="applyGetMoney" a:if="{{canDraw}}">申请提现</view>
   <view  class='draw_text3'>1-5个工作日到账</view>
 </view>
 </view>
