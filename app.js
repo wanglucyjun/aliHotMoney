@@ -54,12 +54,12 @@ App({
     //   console.log(userInfo)
     // }})
     //请求成功
-    accelerometer.init()
+    //accelerometer.init()
   },
   //获取提现初始值
   getBalance: function () {
     var that=this
-    wx.request({
+    my.httpRequest({
       url: config.hongbaoGetBalanceUrl,
       data: {
         token: login.getSession().session.token

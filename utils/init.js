@@ -1,7 +1,7 @@
 const config = require('../config')
 var utils = require('./util');
 
-var InitData_KEY = 'weapp_init_' + 'wxc5b3f7dd539abcff';    //WX_SESSION_MAGIC_ID
+var InitData_KEY = 'weapp_init_' + '2018020202130257';    //WX_SESSION_MAGIC_ID
 var noop = function noop() { };
 var defaultOptions = {
   method: 'GET',
@@ -10,21 +10,21 @@ var defaultOptions = {
 };
 var InitData = {
   get: function () {
-    return wx.getStorageSync(InitData_KEY) || null;
+    return my.getStorageSync({key:InitData_KEY}).data || null;
   },
 
   set: function (data) {
-    wx.setStorageSync(InitData_KEY, data);
+    my.setStorageSync({key:InitData_KEY, data:data});
   },
 
   clear: function () {
-    wx.removeStorageSync(InitData_KEY);
+    my.removeStorageSync({key:InitData_KEY});
   },
 };
 var init = function (options) {
   console.log('init')
   options = utils.extend({}, defaultOptions, options);
-  wx.request({
+  my.httpRequest({
     url: config.initUrl,
     success: function (res) {
       console.log(res.data)
@@ -44,16 +44,10 @@ var checkInitData = function (options) {
   options = utils.extend({}, defaultOptions, options);
   var data = InitData.get();
   console.log(data)
+ 
   if (data) {
-    wx.checkSession({
-      success: function () {
-        options.success(data);
-      },
-      fail: function () {
-        //Session.clear();
-        init(options);
-      },
-    });
+     console.log('checkInitData1')
+     options.success(data);
   } else {
     //login(options);
     init(options);
