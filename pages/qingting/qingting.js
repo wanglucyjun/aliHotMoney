@@ -2,8 +2,8 @@
 //获取应用实例
 const app = getApp()
 var recordTimeInterval
-var methods = require('../../utils/methods.js')
-var login = require('../../utils/login.js');
+import methods from '../../utils/methods.js'
+import login from '../../utils/login.js'
 Page({
   data: {
     houBaoStyle:1,

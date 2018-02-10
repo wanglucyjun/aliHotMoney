@@ -1,7 +1,7 @@
 // pages/mine/mine.js
 var app = getApp();
-const config = require('../../config')
-var login = require('../../utils/login.js');
+import config from '../../config'
+import login from '../../utils/login.js';
 Page({
 
   /**

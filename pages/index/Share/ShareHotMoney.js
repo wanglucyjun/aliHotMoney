@@ -1,8 +1,8 @@
 // pages/index/Share/ShareHotMoney.js
 var app = getApp();
-const config = require('../../../config')
-var login = require('../../../utils/login.js');
-var methods = require('../../../utils/methods.js')
+import config from '../../../config'
+import login from '../../../utils/login.js';
+import methods from '../../../utils/methods.js'
 Page({
 
   /**

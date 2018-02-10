@@ -1,7 +1,7 @@
 const app = getApp()
-const config = require('../../../config')
-var methods = require('../../../utils/methods.js')
-var login = require('../../../utils/login.js');
+import config from '../../../config'
+import methods from '../../../utils/methods.js'
+import login from '../../../utils/login.js'
 // pages/mine/draw.js
 Page({
 

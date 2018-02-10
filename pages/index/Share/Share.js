@@ -1,9 +1,9 @@
 // pages/index/Share/ShareHotMoney.js
 var app = getApp();
-var methods = require('../../../utils/methods.js')
-var accelerometer = require('../../../utils/accelerometer.js')
-var login = require('../../../utils/login.js');
-const config = require('../../../config')
+import methods from '../../../utils/methods.js'
+import accelerometer from '../../../utils/accelerometer.js'
+import login from '../../../utils/login.js';
+import config from '../../../config'
 var map=new Map();
 var recordTimeInterval
 
