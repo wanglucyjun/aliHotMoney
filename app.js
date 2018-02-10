@@ -1,7 +1,7 @@
 //app.js
 const config = require('./config')
 //var accelerometer = require('utils/accelerometer.js')
-import accelerometer  from '/utils/accelerometer.js';
+import watchshake  from '/utils/watchshake.js';
 import login from '/utils/login.js'
 App({
   globalData: {
@@ -54,7 +54,7 @@ App({
     //   console.log(userInfo)
     // }})
     //请求成功
-    //accelerometer.init()
+    watchshake.init()
   },
   //获取提现初始值
   getBalance: function () {

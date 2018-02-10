@@ -2,7 +2,7 @@
 //获取应用实例
 const app = getApp();
 import methods from '../../utils/methods.js';
-import accelerometer from '../../utils/accelerometer.js';
+import watchshake from '../../utils/watchshake.js';
 import login from '../../utils/login.js';
 Page({
   data: {
@@ -26,7 +26,7 @@ Page({
     items: [
       { name: '0', value: '均分' },
       { name: '1', value: '随机', checked: 'true' },
-      { name: '2', value: '先到多得' },
+      { name: '2', value: '后到多得' },
     ],
     moneyType:'1'
   },
@@ -50,7 +50,7 @@ Page({
     that.setData({
       moving: false
     });
-    accelerometer.stopMove();
+    watchshake.stopMove();
     
   },
   //事件处理函数
@@ -80,14 +80,15 @@ Page({
   },
   startMove: function () {
     var that=this;
-    //   accelerometer.startMove(function(sum){
-    //     console.log("sum");
-    //     console.log(sum);
-    //   that.setData({
-    //       power: sum.toFixed(2),
-    //       powerset:sum.toFixed(2)
-    //   });
-    // });
+    console.log("startMove")
+    watchshake.startMove(function(sum){
+        console.log("sum");
+        console.log(sum);
+        that.setData({
+          power: sum.toFixed(2),
+          powerset:sum.toFixed(2)
+      });
+    });
   },
   // 获取页面填入的值
   powerInput: function (e) {
@@ -135,10 +136,10 @@ Page({
 
   toShare:function(e) {
     var that = this;
-    console.log(e.detail.value)
+    //console.log(e.detail.value)
     if(this.data.Money==''){
 
-      wx.showModal({
+      my.alert({
         title: '提示',
         content: '请先输入金额',
         success: function (res) {
@@ -152,7 +153,7 @@ Page({
     }
 
     else if(this.data.Number==''){
-      wx.showModal({
+      my.alert({
         title: '提示',
         content: '请输入红包个数',
         success: function (res) {
@@ -166,7 +167,8 @@ Page({
     }
     else {
       //停止监听武力值
-      wx.stopAccelerometer({})
+     // my.stopAccelerometer({})
+     //watchshake.stopMove();
 
       methods.hongbaoCreate(1, '', that.data.powerset, that.data.Money, that.data.Number, that.data.fuwufee, '', '', that.data.moneyType, that.data.ispublic)
      
@@ -209,12 +211,12 @@ Page({
     })
   },
   clickexample:function(){
-    wx.navigateTo({
+    my.navigateTo({
       url: '/pages/index/Share/Share?id=344',
     })
   },
   clickhelp:function(){
-    wx.navigateTo({
+    my.navigateTo({
       url: '../mine/help/help',
     })
   }

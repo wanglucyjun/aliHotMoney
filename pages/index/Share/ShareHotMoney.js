@@ -30,7 +30,7 @@ Page({
   refersh: function () {
     console.log('refersh')
     var that = this;
-    wx.request({
+    my.httpRequest({
       url: config.hongbaoDetailUrl,
       data: {
         id: that.data.hongbaoID,

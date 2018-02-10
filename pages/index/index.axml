@@ -43,12 +43,13 @@
                      onInput='NumberInput'></input>
             </view>
            <view class='setSwitch_detail'>
-                <switch  bindchange='clickpublic'>投放广场</switch>
-                <switch class='setting' bindchange='clicksetting' >高级设置</switch>
-           </view>
+               <switch onChange='clickpublic'></switch>投放广场
+               <switch onChange='clicksetting'  class='setting' ></switch>高级设置
+              </view>
+              <view class="server">发红包投放广场会得摇摇豆一个</view>
             <view class="server">需支付￥{{fuwufee}}服务费,优先使用余额￥{{balance}}</view>
            <view
-            class='VoiceBtn' bindtap='toShare'>生成摇摇武力包
+            class='VoiceBtn' onTap='toShare'>生成摇摇武力包
             </view>
           </view>
 
@@ -67,18 +68,19 @@
             <text class='fl'>红包领取时限</text>
              <input placeholder='10s' class='hotInput fr'
                      ></input>
-              </view>
+                    </view>
+                    -->
           <view class='settingAll'>
-            <text class='fl'>奖励分配方案</text>
-           <radio-group class="radio-group fr" bindchange="radioChange">
+            <text class='fl'>奖励分配</text>
+           <radio-group class="radio-group fr" onChange="radioChange">
             <label class="radio" a:for="{{items}}">
             <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
             </label>
             </radio-group>
-            </view>-->
+            </view>
       </block>
     </view>
-    <view class='exmple fl' bindtap='clickexample'>查看示例</view>
-    <view class='help fr' bindtap='clickhelp'>常见问题</view>
+    <view class='exmple fl' onTap='clickexample'>查看示例</view>
+    <view class='help fr' onTap='clickhelp'>常见问题</view>
  </view>
 </view>

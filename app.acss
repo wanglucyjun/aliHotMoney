@@ -115,12 +115,12 @@
 }
 .server{
   width:600rpx;
-  height:80rpx;
-  line-height: 80rpx;
+  height:40rpx;
+  line-height: 40rpx;
   color:#999;
   text-align: center;
   font-size: 24rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 10rpx;
 }
 .VoiceBtn{
   width:600rpx;
@@ -140,7 +140,6 @@
 }
 .setting{
  margin-left:50rpx;
- margin-right:50rpx;
 
 }
 .checkbox{

@@ -1,5 +1,5 @@
 /* pages/index/Share/ShareHotMoney.wxss */
-Page{
+.a-page{
   background:#CD533C;
 }
 .bg_pic{

@@ -206,6 +206,7 @@ function makeSign(){
 }
 //创建红包接口请求
 function hongbaoCreate(type,question,power,Money,num,fee,filePath,voiceLength,moneyType,ispublic){
+  console.log('create')
   var that = this
 wx.request({
 
