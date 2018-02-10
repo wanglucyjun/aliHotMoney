@@ -27,9 +27,14 @@ var getMyLoginResult = function getLoginCode(callback) {
       console.log('loginsuccess')
       my.getAuthUserInfo({
         success: function (userInfo) {
+
+          var ui={};
+          ui.avatarUrl=userInfo.avatar;
+          ui.account=userInfo.nickName;
+
           callback(null, {
             code: loginResult.authCode,
-            userInfo: userInfo,
+            userInfo: ui,
           });
         },
 

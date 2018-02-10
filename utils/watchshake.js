@@ -17,6 +17,7 @@ var watchShake= function() {
         var thistime=new Date().getTime();
         var difftime=thistime-data.lasttime;
         data.lasttime=thistime;
+
         for(var i=0;i<data.defalutss.length;i++){
               tempdata=data.defalutss[i]
               if(difftime<tempdata[0]){
@@ -30,6 +31,12 @@ var watchShake= function() {
               data.lengtharr.shift();
               data.lengtharr.push();
           }
+
+
+        
+        if(data.lengthss<0){
+          data.lengthss=0
+        }
         console.log(data.lengthss)
         console.log(difftime)
 

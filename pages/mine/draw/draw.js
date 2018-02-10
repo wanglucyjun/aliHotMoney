@@ -209,6 +209,9 @@ Page({
                   title: '提示',
                   content: '提现申请成功，1～5个工作日到账',
                   buttonText: '我知道了',
+                  success(){
+                    setTimeout(function(){my.navigateBack();},1000);
+                  }
                 });
                 that.refresh();
               }else{
