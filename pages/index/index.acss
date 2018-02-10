@@ -1,0 +1,20 @@
+/* pages/kouling/kouling.wxss */
+
+Page{
+  background:#f3f5fa;
+}
+.nav{
+  height:80rpx;
+  background: #e73b58;
+}
+.nav_box{
+  overflow: hidden;
+  width:600rpx;
+  height:60rpx;
+  margin:0 auto;
+  line-height: 60rpx;
+  background:#e73b58;
+  color:#fff;
+  display:flex;
+  justify-content: space-around;
+}

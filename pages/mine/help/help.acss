@@ -1,0 +1,50 @@
+
+Page{
+  background:#f3f5fa;
+}
+.help-list{
+  margin: 30rpx;
+}
+.help-list-item {
+  
+  margin: 20rpx 0;
+  background-color: #FFFFFF;
+  border-radius: 4rpx;
+  overflow: hidden;
+}
+.help-list-text{
+  flex: 1;
+}
+
+.help-list-item-hd {
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size:30rpx;
+  transition: opacity .3s;
+}
+.help-list-item-hd-show {
+  opacity: .2;
+}
+.help-list-item-center {
+  height: 0;
+  background:#f3f5fa;
+}
+.help-list-item-bd {
+ 
+  height: 0;
+  overflow: hidden;
+}
+.help-list-item-bd-show {
+  padding:30rpx;
+  font-size:26rpx;
+  height: auto;
+}
+.contact{
+   margin: 30rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color:#fff;
+  background: #31bd48;
+}

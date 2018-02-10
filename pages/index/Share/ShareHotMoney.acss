@@ -1,0 +1,118 @@
+/* pages/index/Share/ShareHotMoney.wxss */
+Page{
+  background:#CD533C;
+}
+.bg_pic{
+   height: 600rpx;
+   width: 100%;
+   position: relative;
+}
+.bg_picbody{
+
+  position:absolute;
+}
+.bg{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+}
+.bg-code{
+    width: 250rpx;
+    height: 250rpx;
+    position:absolute;
+    left:35%;
+    bottom:10%;
+}
+.con{
+  overflow: hidden;
+  /* padding:0 30rpx; */
+}
+.share_box{
+  width:690rpx;
+  margin-left:30rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.header_logo{
+  border-radius:15rpx;
+}
+.kouling{
+  width:690rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  font-size:30rpx;
+  color:#fde2b3;
+  text-align: center;
+}
+.kouling text{
+ font-size:40rpx;
+}
+.yuyin{
+  width:690rpx;
+  height:336rpx;
+  line-height:136rpx;
+  font-size:48rpx;
+  color:#fde2b3;
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+}
+.juhuama{
+  width:245rpx;
+  height:245rpx;
+  border-radius:50%;
+}
+.share_box_ju{
+  width:690rpx;
+  border-radius:50%;
+  display: flex;
+  padding-left:30rpx;
+  justify-content: space-around;
+}
+.marginTop{
+  margin-top:65rpx;
+  padding-top:30rpx;
+}
+.moneyNum{
+  font-size:80rpx;
+  color:#fde2b3;
+  width:100%;
+  text-align: center;
+}
+.share_box_ju{
+  width:690rpx;
+  border-radius:50%;
+  /* display: flex;
+  justify-content: space-around; */
+}
+.btn_box{
+  padding-top:20rpx;
+  width:690rpx;
+  height:220rpx;
+  background:#fff;
+  border-radius:15rpx;
+}
+.btn_Btn{
+  width:625rpx;
+  height:80rpx;
+  text-align:center;
+  line-height: 80rpx;
+  font-size:28rpx;
+  background:#31bd48;
+  color:#fff;
+  margin:15rpx auto;
+  border-radius:15rpx;
+}
+.btn_top{
+  margin-top:30rpx;
+}
+.btn_Shi{
+  width:625rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin-top:30rpx;
+}
+
+
+/*倾听红包  */

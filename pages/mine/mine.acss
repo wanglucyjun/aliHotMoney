@@ -1,0 +1,297 @@
+/* pages/mine/mine.wxss */
+Page{
+  background: #f3f5fa;
+}
+.mine_header{
+  width:100%;
+  height:346rpx; 
+  position: relative;
+
+}
+.bg{
+    width: 100%;
+    height: 100%;
+}
+.header_Head{
+  width:150rpx;
+  height:150rpx;
+  border-radius:50%;
+  border:8rpx solid #fff;
+}
+.nav{
+  width:750rpx;
+  height:100rpx;
+  display: flex;
+  justify-content: space-around;
+  background: #fff;
+  font-size:30rpx;
+}
+.nav_con{
+  line-height: 95rpx;
+}
+.header_Box{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+
+}
+.header_center{
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    color:#fff;
+
+}
+.header_name{
+  height:50rpx;
+  line-height: 50rpx;
+  font-size:32rpx;
+
+}
+.header_yue{
+  height:50rpx;
+  line-height: 50rpx;
+  font-size:26rpx;
+}
+.header_right{
+ position: absolute;
+ top: 10%;
+ left: 75%;
+  color:#fff;
+}
+.hotMoney_tu{
+  width:110rpx;
+}
+.header-right_tixian{
+  color:#fff;
+  text-align: center;
+  line-height: 60rpx;
+}
+.betterPlay{
+  width:750rpx;
+  height:55rpx;
+  position: relative;
+  text-align: center;
+  line-height: 55rpx;
+  font-size:30rpx;
+  font-weight:bold;
+  background: #fff;
+}
+.betterPlay image{
+  position:absolute;
+  left:0%;
+  top:0%;
+  width:100%;
+  height: 100%;
+}
+.mine_hotStyle{
+  width:750rpx;
+  background: #fff;
+  border-bottom:10rpx solid #f3f5fa;
+}
+.mine-hotStyle_con{
+  width:700rpx;
+  height:175rpx;
+  padding:25rpx;
+}
+.mine-hotStyle_Box{
+  width:175rpx;
+  height:175rpx;
+  text-align: center;
+}
+.mine_style_tu{
+  width:117rpx;
+  display: block;
+  margin:0 auto;
+}
+.letu{
+  line-height:58rpx;
+  height:58rpx;
+}
+.mine-hotStyle_con_other{
+  width:700rpx;
+  height:117rpx;
+  padding:25rpx;
+}
+.jieshuo{
+  width:520rpx;
+  line-height:117rpx;
+  height:117rpx;
+  font-size:30rpx;
+}
+
+.on{
+  border-bottom:5rpx solid #e73b58;
+}
+.content{
+  width:563rpx;
+  height:150rpx;
+  margin: 0 auto;
+ 
+}
+
+.logo_center{
+  display: block;
+  margin:30rpx auto;
+}
+.content_bottom{
+  height:120rpx;
+  width:563rpx;
+
+}
+.nickName{
+  font-size:30rpx;
+}
+.Money_Number{
+  width:281rpx;
+  height:100rpx;
+  padding-top:20rpx;
+  text-align: center;
+  font-size:32rpx;
+}
+.money_num{
+  line-height: 60rpx;
+  font-size:38rpx;
+  font-weight:bold;
+}
+
+.sended-list-item{
+  width:750rpx;
+  height:85rpx;
+  background: #fff;
+  margin-bottom:5rpx;
+}
+.sended-list-item-box{
+  width:700rpx;
+  margin:0 auto;
+  overflow:hidden;
+}
+.sended-list-item-left{
+  width:85rpx;
+  height:90rpx;
+
+}
+.sended-list-item-center{
+  padding-top: 10rpx;
+  width:300rpx;
+  height:85rpx;
+}
+.sended-list-item-right{
+  height:85rpx;
+  text-align:right;
+}
+.sended-list-item-logo{
+  width:80rpx;
+  height:80rpx;
+  border-radius:15rpx;
+}
+.sended-list-item text{
+  font-size:28rpx;
+}
+.sended-list-item-money{
+  font-size:30rpx;
+  color:#90EE90;
+}
+.sended-list-item-date{
+  font-size:22rpx;
+}
+.received-list-item{
+  width:750rpx;
+  height:90rpx;
+  background: #fff;
+  margin-bottom:5rpx;
+}
+.received-list-item-box{
+  width:700rpx;
+  margin:0 auto;
+  overflow:hidden;
+}
+.received-list-item-left{
+  width:90rpx;
+  height:90rpx;
+
+}
+.received-list-item-center{
+  width:300rpx;
+  height:90rpx;
+}
+.received-list-item-right{
+  height:90rpx;
+  
+}
+.received-list-item-logo{
+  width:80rpx;
+  height:80rpx;
+  border-radius:15rpx;
+}
+.received-list-item-text{
+  font-size:25rpx;
+}
+.received-list-item-money{
+  font-size:30rpx;
+  color:#e73b58;
+}
+.received-list-item-date{
+  font-size:22rpx;
+}
+.reload-page{
+  width:750rpx;
+  background: #fff;
+  padding:15rpx;
+  text-align: center;
+  font-size:35rpx;
+}
+
+.people{
+  width:700rpx;
+  font-size:26rpx;
+  height:48rpx;
+  line-height: 48rpx;
+  margin-top:0rpx;
+}
+.time{
+  width:700rpx;
+  font-size:24rpx;
+  color:#999;
+}
+.people_header{
+  width:66rpx;
+  margin-top:30rpx;
+  margin-right:20rpx;
+}
+.draw-list-item{
+  width:750rpx;
+  height:90rpx;
+  background: #fff;
+  margin-bottom:5rpx;
+}
+.draw-list-item-box{
+  width:700rpx;
+  margin:0 auto;
+  overflow:hidden;
+}
+.draw-list-item-left{
+  width:300rpx;
+  margin: 10rpx;
+
+}
+.draw-list-item-center{
+  width:300rpx;
+  height:90rpx;
+}
+.draw-list-item-right{
+  
+  margin: 10rpx;
+}
+.draw-list-item-text{
+  font-size:30rpx;
+  margin-bottom: 5rpx;
+}
+.draw-list-item-money{
+  font-size:30rpx;
+  color:#e73b58;
+}
+.draw-list-item-date{
+  font-size:22rpx;
+  height: 38rpx;
+}

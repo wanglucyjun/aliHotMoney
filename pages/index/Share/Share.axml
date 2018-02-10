@@ -1,0 +1,113 @@
+a:<!--pages/index/Share/ShareHotMoney.wxml-->
+<view class='container'>
+  <view class='con'>
+ <view class='topBox'>
+    <image class='bg' src='../../image/lingquBg.jpg'></image>
+    <view  class='topBoxBody'>
+      <view class='share_box'>
+        <image src='{{hongbaoDetail.senderIcon}}'
+              mode='widthFix' class='headerShare'></image>
+      </view>
+      <view class="share_box">
+        <view class='kouling'> {{hongbaoDetail.senderName}}</view>
+      </view>
+      <view class='ChangeHot'>
+        <!--摇一摇领红包-->
+        <view a:if="{{hongbaoDetail.type==1}}">
+        <view class="share_box" >
+            <view class='question1'>小伙伴摇摇力超过武力值<text style="font-size:50rpx">{{hongbaoDetail.content.question}}</text>即可领红包</view>
+          </view>
+          <view a:if="{{hongbaoDetail.state==1}}">
+            <view a:if="{{hongbaoDetail.hadSend==0}}">
+              <view class='answer2'a:if="{{moving===true}}">摇一摇的武力值是{{userHongbao.text}}</view>
+            </view>
+            <view class='answer2ok' a:if="{{hongbaoDetail.hadSend==1}}">已领红包</view>
+          </view>
+           <view class='answer2ok' a:if="{{hongbaoDetail.state==2}}">活动已完毕</view>
+        </view>
+        <view  a:if="{{isspeaking}}"  class="speak-style">
+            <image class="sound-style" src="../../image/voice_icon_speech_sound_1.png" ></image>
+            <image a:if="{{j==2}}" class="sound-style" src="../../image/voice_icon_speech_sound_2.png" ></image>
+                <image a:if="{{j==3}}" class="sound-style" src="../../image/voice_icon_speech_sound_3.png" ></image>
+               <image a:if="{{j==4}}" class="sound-style" src="../../image/voice_icon_speech_sound_4.png" ></image>
+               <image a:if="{{j==5}}"class="sound-style" src="../../image/voice_icon_speech_sound_5.png" ></image>
+            </view>
+       <!--按住说出以上口令领取赏金-->
+        <view a:if="{{hongbaoDetail.type==2}}">
+          <view class="share_box" >
+            <view class='question2'><text class="iconfont icon-hongbao">{{hongbaoDetail.content.question}}  </text></view>
+          </view>
+          <view a:if="{{hongbaoDetail.state==1}}">
+             <view class='answer2' a:if="{{hongbaoDetail.hadSend==0}}"  bindtouchstart='startRecord' bindtouchend='stopRecord'>按住说出以上口令领取赏金</view>
+             <view class='answer2ok' a:if="{{hongbaoDetail.hadSend==1}}">已领红包</view>
+          </view>
+       
+        <view class='answer2ok' a:if="{{hongbaoDetail.state==2}}">活动已完毕</view>
+        </view>
+        <!--按住收听真心话领取赏金-->
+        <view a:if="{{hongbaoDetail.type==3}}">
+          <view class="share_box" >
+          
+          </view>
+           <view class="{{hongbaoDetail.hadSend==0?'question3':'question3ok'}}"  bindtap='playVoice'  data-url='{{hongbaoDetail.content.question}}' >
+              <text class="iconfont3 icon-bofang" >点击收听真心话{{hongbaoDetail.hadSend==0?'领取赏金':''}}</text>
+            </view>
+          <view class='share_box_ju'>
+            <view class="moneyNum">{{hongbaoDetail.allMoney}}<text class='fontSize'>元</text> </view> 
+          </view>
+        </view>
+         <!--猜谜底领取赏金-->
+        <view a:if="{{hongbaoDetail.type==4}}">
+          <view class="share_box" >
+            <view class='question4'>{{hongbaoDetail.content.question}}</view>
+          </view>
+          <view class='share_box_ju'>
+            <view class='answer4'><input placeholder="请输入正确答案" auto-focus/></view> 
+            <view class="moneyNum">{{hongbaoDetail.allMoney}}<text class='fontSize'>元</text> </view> 
+          </view>
+        </view>
+        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">领广场红包每次消耗摇摇豆，摇摇豆余额：{{yaoyaodou}}</view>
+      </view>
+
+      <view class='share_box marginTop'>
+        
+        <view class="caozuoShare">
+            <!--<view class=''><text class="iconfont icon-tixian"></text> 去提现</view>-->
+            <view class=''><text class="iconfont1 icon-hongbao1" bindtap="againSend">再发一个</text> </view>
+            <view class=''><text class="iconfont1 icon-fenxiang" bindtap="toShare">去转发</text> </view>
+        </view>
+      </view>
+    </view>
+</view>
+    <view class='hotMoneyNum'>
+        <view class='fl'>共{{hongbaoDetail.allMoney}}元，已领取{{hongbaoDetail.sendNum}}/{{hongbaoDetail.allNum}}个</view>
+        <view class='fr'><navigator class='accuse' url='/pages/mine/accuse/accuse?id={{hongbaoID}}'>投诉</navigator></view>
+    </view>
+    <block a:for="{{hongbaoDetail.list}}" a:key="url" a:for-index="idx" a:for-item="item" data-idx="{{idx}}">
+      <view class='peopleMoney'>
+      <view class='peopleMoney_Left fl'>
+        <image src='{{item.iocn}}' mode='widthFix' class='header_logo'></image>
+      </view>
+      <view class='peopleMoney_center fl'>
+        <text class='people_NickName'>{{item.name}}</text>
+        <icon></icon>
+        <view a:if="{{hongbaoDetail.type==1}}">武力值{{item.answer}}</view>
+        <view class='yuying_time' bindtap='playVoice' data-url='{{item.answer}}' a:if="{{hongbaoDetail.type==2}}">{{item.answer_extral}}"</view>
+        <view  a:if="{{hongbaoDetail.type==3}}"></view>
+        <view class='yuying_time' a:if="{{hongbaoDetail.type==4}}"></view>
+      </view>
+      <view class='peopleMoney_right fr'>
+        <view class='yuying_time_right'>
+          <view class='right_Num'>{{item.money}}元</view>
+          <view class='right_time'>{{item.date}}</view>
+        </view>
+      </view>
+    </view>
+      </block>
+    <view class='jilu' bindtap='gotoMine'>
+      查看我的记录
+   </view>
+
+    <view class='weilingqu'>未领取的金额，将于24小时后退还到余额</view>
+  </view>
+</view>

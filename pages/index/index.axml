@@ -1,0 +1,84 @@
+<!--pages/kouling/kouling.wxml-->
+
+<view class="container">
+ <view class='con'>
+ <!--控制导航  -->
+    <!--容器  -->
+    <view class="HotMoney_box">
+        <view class='watchword' 
+              style="">
+          <view class='header' >
+          
+          <block a:if="{{!userInfo.avatarUrl}}" >
+            <image class='header_size' src="../image/headDefault.jpg"/>
+            </block>
+         <block  a:if="{{userInfo.avatarUrl}}">
+          <image src="{{userInfo.avatarUrl}}" class='header_size'></image>
+          </block>
+
+          </view>
+          <view class="setHotMoney">
+          <!--摇摇红包  -->
+            <view class='setHotMoney_detail' >
+              <view class='setHotMoney_name fl' >设置武力</view>
+              <input type='digit' placeholder="{{power?power:'摇一摇设置值'}}" class='hotInput fr'      bindinput='powerInput' value="{{power?power:''}}"></input>
+            </view>
+
+            <view class='shuoming'>
+              <text>{{shuoming}}</text>
+            </view>
+            
+            <!-- <view class='try'>
+              <button class='try' a:if="{{moving===false}}" bindtap='startMove'>试一下？点我，摇手机</button>
+              <text class='try'a:if="{{moving===true}}">刚才最大的武力值是{{power}}</text>
+            </view> -->
+            <view class='setHotMoney_detail'>
+              <view class='setHotMoney_name fl' >赏金（元）</view>
+              <input type='digit' placeholder='填写金额' class='hotInput fr'
+                     bindinput='MoneyInput'></input>
+            </view>
+            <view class='setHotMoney_detail'>
+              <view class='setHotMoney_name fl' >数量（个）</view>
+              <input type='number' placeholder='填写数量' class='hotInput fr'
+                     bindinput='NumberInput'></input>
+            </view>
+           <view class='setSwitch_detail'>
+                <switch  bindchange='clickpublic'>投放广场</switch>
+                <switch class='setting' bindchange='clicksetting' >高级设置</switch>
+           </view>
+            <view class="server">需支付￥{{fuwufee}}服务费,优先使用余额￥{{balance}}</view>
+           <view
+            class='VoiceBtn' bindtap='toShare'>生成摇摇武力包
+            </view>
+          </view>
+
+
+        </view>
+    </view>
+     <view>
+     <block a:if="{{advancedSetting}}" >
+           <!-- <view class='settingAll'>
+             <view class=' fl' >设置转发标题</view>
+              <input placeholder='新年快乐大吉大利' class='hotInput fr'
+                     bindinput='shareInput'></input>
+            </view>
+
+            <view class='settingAll'>
+            <text class='fl'>红包领取时限</text>
+             <input placeholder='10s' class='hotInput fr'
+                     ></input>
+              </view>
+          <view class='settingAll'>
+            <text class='fl'>奖励分配方案</text>
+           <radio-group class="radio-group fr" bindchange="radioChange">
+            <label class="radio" a:for="{{items}}">
+            <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+            </radio-group>
+            </view>-->
+      </block>
+    </view>
+    <view class='exmple fl' bindtap='clickexample'>查看示例</view>
+    <view class='help fr' bindtap='clickhelp'>常见问题</view>
+ </view>
+</view>

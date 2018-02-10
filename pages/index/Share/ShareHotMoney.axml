@@ -1,0 +1,36 @@
+a:<!--pages/index/Share/ShareHotMoney.wxml-->
+<view class='container'>
+  <view class='con'>
+    <view class='bg_pic'>
+    <image class='bg' src='../../image/bg.png'></image>
+  <image class='bg-code' src='../../image/code.jpg'></image>
+
+    <view class='bg_picbody'>
+      <view class='share_box'>
+        <image src='{{hongbaoDetail.senderIcon}}'
+              mode='widthFix' class='headerShare'></image>
+      </view>
+      <view class="share_box">
+        <view class='kouling'> {{hongbaoDetail.senderName}}</view>
+      </view>
+      <view class="share_box">
+        <view class='kouling'>     
+            发送了一个    
+            <text  a:if="{{hongbaoDetail.type==1}}">摇摇包</text>
+            <text  a:if="{{hongbaoDetail.type==2}}">口令包</text>
+            <text  a:if="{{hongbaoDetail.type==3}}">倾听包</text>
+            <text  a:if="{{hongbaoDetail.type==4}}">猜谜包</text>
+        </view>
+    </view>
+    </view>
+    </view>
+    <view class='share_box marginTop'>
+      <view class='btn_box'>
+        <button class='btn_Btn' open-type="share">转发到好友或着群里</button> 
+        <button class='btn_Btn' style="display:none" >生成朋友圈分享图</button> 
+        <navigator class='btn_Btn' open-type="navigateBack">返回</navigator> 
+      </view>
+    </view>
+    
+  </view>
+</view>

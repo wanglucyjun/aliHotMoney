@@ -1,0 +1,19 @@
+a:<view>
+ <view class='help-list'>
+  <block a:for="{{helpinfos.lists}}"  a:key="{{item.id}}" >
+      <view class='help-list-item' >
+        <view id='{{item.id}}' class="help-list-item-hd {{item.open ? 'help-list-item-hd-show' : ''}}" bindtap="kindToggle">
+          <view class="kind-list-text">{{item.title}}</view>
+        </view>
+        <view class="help-list-item-center"/>
+        <view class="help-list-item-bd {{item.open ? 'help-list-item-bd-show' : ''}}">
+          <view class="kind-list-text">{{item.content}}</view>
+        </view>
+      </view>
+      </block>
+ </view>
+<view>
+  <button class='contact' open-type="contact">进入客服会话</button>
+  <navigator class='accuse' url='/pages/mine/accuse/accuse'>投诉</navigator>
+</view>
+</view>

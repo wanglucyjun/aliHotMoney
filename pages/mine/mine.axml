@@ -1,0 +1,137 @@
+<!--pages/mine/mine.wxml-->
+<view class='container'>
+  <view class='con'>
+    <view class='mine_header'>
+    <image class='bg' src='../image/hot1.png'></image>
+    <view class='header_Box fl'>
+      <image src='{{userInfo.avatarUrl}}'  class='header_Head'> </image>
+    </view>
+    <view class='header_center fl'>
+      <view class='header_name'>{{userInfo.nickName}}</view>
+      <view class='header_yue'>余额:￥{{userHongbao.allMoney}}</view>
+      <view class='header_yue'>可提:￥{{userHongbao.withdrawableMoney}}</view>
+    </view>
+    <view class='header_right fr'  bindtap="getMoney">
+        <image src='../image/hot.png' mode='widthFix' class='hotMoney_tu'></image>
+        <view class='header-right_tixian'>提现</view>
+     </view>
+     
+    </view>
+
+    <view class='betterPlay' >
+      <image src='../image/line.png'></image>
+      <text>我的记录</text>
+</view>
+
+    <view class='nav'>
+      <text class="nav_con {{mineRecod==1? 'on':''}}" data-num="1" bindtap='changeTab'>我发出的</text>
+      <text class="nav_con {{mineRecod==2? 'on':''}}" data-num="2" bindtap='changeTab'>我收到的</text>
+      <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" bindtap='changeTab'>我提现的</text>
+    </view>
+    <view class='content'>
+    <view class='content_bottom'  a:if="{{mineRecod==1}}"  >
+        <view class='Money_Number fl'>
+          <view class='Money_name'>金额（元）</view>
+          <view class='money_num'>{{sendedHongbao.sendedMoney}}</view>
+        </view>
+        <view class='Money_Number fl'>
+          <view class='Money_name'>数量（个）</view>
+          <view class='money_num'>{{sendedHongbao.sendedNum}}</view>
+        </view>
+    
+    </view>
+    
+    <view class='content_bottom'  a:if="{{mineRecod==2}}" >
+        <view class='Money_Number fl'>
+          <view class='Money_name'>金额（元）</view>
+          <view class='money_num'>{{receivedHongbao.receivedMoney}}</view>
+        </view>
+        <view class='Money_Number fl'>
+          <view class='Money_name'>数量（个）</view>
+          <view class='money_num'>{{receivedHongbao.receivedNum}}</view>
+        </view>
+    
+    </view>
+
+<view class='content_bottom'  a:if="{{mineRecod==3}}" >
+        <view class='Money_Number fl'>
+          <view class='Money_name'>今日次数</view>
+          <view class='money_num'>{{userHongbao.dayDrawNum}}</view>
+        </view>
+        <view class='Money_Number fl'>
+          <view class='Money_name'>可提次数</view>
+          <view class='money_num'>{{userHongbao.dayLimit-userHongbao.dayDrawNum}}</view>
+        </view>
+    
+    </view>
+    
+      </view>
+      <view  a:if="{{mineRecod==1}}" >
+       <block a:for="{{sendedHongbao.list}}"  a:key="id" a:for-index="idx" a:for-item="item" data-idx="{{idx}}" >
+      
+      <view class='sended-list-item' >
+        <view class='sended-list-item-box'  data-hongbaoid='{{item.id}}' bindtap='toShare'>
+          <view class='sended-list-item-center fl'>
+            <text class='sended-list-item-money' a:if="{{item.type==1}}">摇摇包  </text>
+            <text class='sended-list-item-money' a:if="{{item.type==2}}">口令包  </text>
+            <text class='sended-list-item-money' a:if="{{item.type==3}}">倾听包  </text>
+            <text class='sended-list-item-money' a:if="{{item.type==4}}">猜谜包  </text>
+            <text >{{item.title}}</text>
+            <view class='sended-list-item-date'>{{item.date}}</view>
+          </view>
+          <view class='sended-list-item-right fr'>
+            <view class='sended-list-item-money'>{{item.allMoney}}元</view>
+            <text style="align='right'">{{item.allNum-item.leftNum}}/{{item.allNum}}</text>
+          </view>
+        </view>
+      </view>
+      </block>
+ </view>
+ <view  a:if="{{mineRecod==2}}" >
+       <block a:for="{{receivedHongbao.list}}"  a:key="id" a:for-index="idx" a:for-item="item" data-idx="{{idx}}" >
+      <view class='received-list-item' >
+        <view class='received-list-item-box'  data-hongbaoid='{{item.id}}' bindtap='toShare'>
+          <view class='received-list-item-left fl'>
+          <image src='{{item.icon}}' mode='widthFix' class='received-list-item-logo'></image>
+          </view>
+          <view class='received-list-item-center fl'>
+            <view class='received-list-item-text'>{{item.name}}</view>
+            <text class='received-list-item-money' a:if="{{item.type==1}}">摇摇包</text>
+            <text class='received-list-item-money' a:if="{{item.type==2}}">口令包</text>
+            <text class='received-list-item-money' a:if="{{item.type==3}}">倾听包</text>
+            <text class='received-list-item-money' a:if="{{item.type==4}}">猜谜包</text>
+            <text class='received-list-item-text'>  {{item.title}}</text>
+          </view>
+          <view class='received-list-item-right fr'>
+            <view class='received-list-item-money'>{{item.money}}元</view>
+            <view class='received-list-item-date'>{{item.date}}</view>
+          </view>
+        </view>
+      </view>
+      </block>
+ </view>
+<view  a:if="{{mineRecod==3}}" >
+
+  <block a:for="{{drawlist.list}}"  a:key="id" a:for-index="idx" a:for-item="item" data-idx="{{idx}}" >
+     
+      <view class='draw-list-item' >
+        <view class='draw-list-item-box' >
+          <view class='draw-list-item-left fl'>
+           <view class='draw-list-item-text'>状态：{{item.status_name}}</view>
+           <view class='draw-list-item-date'>申请时间：{{item.created_at}}</view>
+          </view>
+          <!-- <view class='draw-list-item-center fl'>
+            <text class='draw-list-item-text'> {{item.title}}</text>
+          </view> -->
+          <view class='draw-list-item-right fr'>
+            <view class='draw-list-item-money'>{{item.real_money}}元</view>
+          </view>
+        </view>
+      </view>
+      </block>
+ </view>
+ <view class='reload-page' bindtap='onReachBottom'>
+        <text>点击加载下一页</text>
+ </view>
+  </view>
+</view>

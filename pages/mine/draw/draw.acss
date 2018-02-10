@@ -1,0 +1,105 @@
+/* pages/mine/draw.wxss */
+Page{
+  background: #f3f5fa;
+}
+.balance{
+overflow: hidden;
+}
+.qcode{
+   height:160rpx;
+   margin-bottom: 10rpx;
+   margin-top: 10rpx;
+}
+.qcode-select{
+  text-align: center;
+  height:160rpx;
+  line-height: 160rpx;
+  color:#fff;
+  background: #CD9B9B;
+  border-radius:15rpx;
+ padding: 0 20rpx;
+}
+.account{
+  height:79rpx;
+  line-height:70rpx;
+  font-weight:bold;
+  font-size:35rpx;
+  border-bottom:1px solid #ccc;
+  margin-bottom: 10rpx;
+  margin-top: 10rpx;
+}
+.account-name{
+font-size:35rpx;
+}
+.account-value{
+height: 70rpx;
+}
+.setHotMoney_detail{
+  height:110rpx;
+  line-height:110rpx;
+  font-weight:bold;
+  font-size:60rpx;
+  border-bottom:1px solid #ccc;
+  margin-bottom: 10rpx;
+}
+.setHotMoney_name{
+font-size:40rpx;
+}
+.hotInput{
+height: 110rpx;
+}
+.draw_box{
+  margin-top:80rpx;
+  margin-left:28rpx;
+  margin-right:28rpx;
+  background: #fff;
+  padding: 30rpx;
+}
+.draw_text{
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  font-size:28rpx;
+}
+.balance_money{
+  text-align: center;
+  font-size:50rpx;
+  color:#CDC5BF;
+}
+.draw_text2{
+  margin-top:15rpx;
+  margin-bottom:15rpx;
+  font-size:24rpx;
+  color:#CDC5BF;
+}
+.draw_text3{
+  margin-top:15rpx;
+  margin-bottom:15rpx;
+  font-size:24rpx;
+  text-align: center;
+  color:#CDC5BF;
+}
+.draw_text4{
+  color:#D95940;
+}
+.draw_text5{
+  color:#D95940;
+  font-size:30rpx;
+}
+.draw{
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color:#fff;
+  background: #31bd48;
+  border-radius:45rpx;
+
+}
+.disdraw{
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  color:#f0f0f0;
+  background: #9ED99D;
+  border-radius:45rpx;
+
+}
