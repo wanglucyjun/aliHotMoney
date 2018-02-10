@@ -2,6 +2,7 @@ var data= {
     isShake:false,
     lasttime:0,
     lengthss:2,
+    defalutss:[[100,10],[200,5],[300,-1],[500,-10],[1000,-20],[1000000,0]],//[毫秒数，和数值]
     lengtharr:[1,2,3,4,5,6,7,8,9,10],
     func: function () { }
 
@@ -16,17 +17,20 @@ var watchShake= function() {
         var thistime=new Date().getTime();
         var difftime=thistime-data.lasttime;
         data.lasttime=thistime;
-        if(difftime<100){
-          data.lengthss+=10;
-        }else if(difftime<200){
-          data.lengthss+=5;
-        }else if(difftime<300){
-          data.lengthss-=1;
-        }else if(difftime<400){
-          data.lengthss-=10;
-        }else{
-          data.lengthss-=20;
-        }
+
+        for(var i=0;i<data.defalutss.length;i++){
+              tempdata=data.defalutss[i]
+              if(difftime<tempdata[0]){
+                  value+=tempdata[1];
+                  break;
+              }
+          }
+          if (data.lengthss < 0) {
+              data.lengthss = 0;
+          } else {
+              data.lengtharr.shift();
+              data.lengtharr.push();
+          }
 
 
         
