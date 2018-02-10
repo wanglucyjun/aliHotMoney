@@ -9,11 +9,11 @@
               style="">
           <view class='header' >
           
-          <block a:if="{{!userInfo.avatar}}" >
+          <block a:if="{{!userInfo.avatarUrl}}" >
             <image class='header_size' src="../image/headDefault.jpg"/>
             </block>
-         <block  a:if="{{userInfo.avatar}}">
-          <image src="{{userInfo.avatar}}" class='header_size'></image>
+         <block  a:if="{{userInfo.avatarUrl}}">
+          <image src="{{userInfo.avatarUrl}}" class='header_size'></image>
           </block>
 
           </view>

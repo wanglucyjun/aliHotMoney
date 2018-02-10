@@ -4,7 +4,7 @@
     <view class='mine_header'>
     <image class='bg' src='../image/hot1.png'></image>
     <view class='header_Box fl'>
-      <image src='{{userInfo.avatar}}'  class='header_Head'> </image>
+      <image src='{{userInfo.avatarUrl}}'  class='header_Head'> </image>
     </view>
     <view class='header_center fl'>
       <view class='header_name'>{{userInfo.nickName}}</view>
