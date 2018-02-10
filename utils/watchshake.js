@@ -19,7 +19,7 @@ var watchShake= function() {
         data.lasttime=thistime;
 
         for(var i=0;i<data.defalutss.length;i++){
-              tempdata=data.defalutss[i]
+              var tempdata=data.defalutss[i]
               if(difftime<tempdata[0]){
                   data.lengthss+=tempdata[1];
                   break;
