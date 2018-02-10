@@ -27,6 +27,7 @@ var init = function (options) {
   my.httpRequest({
     url: config.initUrl,
     success: function (res) {
+      console.log('success')
       console.log(res.data)
       if (res.data.data) {
         InitData.set(res.data.data);
@@ -34,7 +35,8 @@ var init = function (options) {
       }
     },
     fail: function (res) {
-      console.log(res.data)
+      console.log('fail')
+      console.log(res)
     },
   })
 };

@@ -42,7 +42,7 @@ Page{
 
 }
 .reason-item radio{
-  width: 100%;
+  
 }
 .submit{
   margin: 30rpx;

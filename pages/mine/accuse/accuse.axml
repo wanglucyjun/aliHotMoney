@@ -6,28 +6,28 @@
       <radio-group onChange="radioChange">
         <view class="reason-item">
         <radio value="1" ></radio>
-        <text>欺诈</text>
+        欺诈
           
         </view>
         <view class="reason-item">
-        <radio value="2" >色情</radio>
-          
+        <radio value="2" ></radio>
+          色情
         </view>
         <view class="reason-item">
-        <radio value="3" >政治谣言</radio>
-          
+        <radio value="3" ></radio>
+          政治谣言
         </view>
         <view class="reason-item">
-        <radio value="4" >诱导分享</radio>
-          
+        <radio value="4" ></radio>
+          诱导分享
         </view>
         <view class="reason-item">
-        <radio value="5" >恶意营销</radio>
-          
+        <radio value="5" ></radio>
+          恶意营销
         </view>
         <view class="reason-item">
-        <radio value="6" >其它</radio>
-          
+        <radio value="6" ></radio>
+          其它
         </view>
         </radio-group>
       </view>

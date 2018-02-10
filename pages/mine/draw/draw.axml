@@ -17,28 +17,28 @@
   </view>
   <view  class='draw_text2'>手续费{{drawfee}}，实际到账{{actualfee}}，<text>全部提现</text></view>
 
-  <view  class='draw_text5'>提现金额最小为{{userHongbao.minWithdrawMoney}}元，最大为{{userHongbao.oneTimesLimit}}元，由于商户号期限原因，暂时不支持提现到零钱，初创企业，多多包涵</view>
+  <view  class='draw_text5'>提现金额最小为{{userHongbao.minWithdrawMoney}}元，最大为{{userHongbao.oneTimesLimit}}元，暂时不支持提现到余额，初创企业，多多包涵</view>
   <view class='draw_text'>提现方式</view>
    <radio-group onChange="radioChange">
         <view class="draw-item">
         <radio value="1" 
-         checked='true'>收款码</radio>
+         checked='true'></radio>收款码
     <view class='qcode fr' a:if="{{drawdata.type==1&&userHongbao.needQCode==1}}" >
       <view class='qcode-select ' onTap='chooseImage' >选择收款码</view>
     </view>
         </view>
         <view class="draw-item">
-        <radio value="2" >微信转账</radio>
+        <radio value="2" ></radio>支付宝转账
           
         </view>
         <view class="draw-item">
-        <radio value="3" disabled="true">提现到零钱</radio>
+        <radio value="3" disabled="true"></radio>提现到余额
         </view>
   </radio-group>
 
   <view class='account' a:if="{{drawdata.type==2&&userHongbao.needAccount==1}}">
-    <view class='account-name fl' >微信号：</view>
-    <input  type='text' placeholder='请输入微信号' class='account-value'
+    <view class='account-name fl' >支付号：</view>
+    <input  type='text' placeholder='请输入帐号' class='account-value'
                      onInput='accountInput' ></input>
   </view>
   <view class='account' a:if="{{drawdata.type==1}}">
