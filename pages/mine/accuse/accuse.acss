@@ -32,13 +32,13 @@ Page{
 
 }
 .reason-item{
- margin: 10rpx;
+   margin: 10rpx 0;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 15rpx;
-  padding-bottom: 15rpx;
+  padding-top: 12rpx;
+  padding-bottom: 12rpx;
   background-color: #FFFFFF;
-  border-radius: 2rpx; 
+  border-radius: 2rpx;
 
 }
 .reason-item radio{

@@ -50,8 +50,6 @@ var watchShake= function() {
 
 
 var startMove=function(func) {
-    console.log("hh")
-    console.log(data);
 
     data.func=func;
     data.lasttime=0;
