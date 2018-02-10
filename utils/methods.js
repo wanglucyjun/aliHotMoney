@@ -145,11 +145,11 @@ function downloadFile(num,netUrl){
     //  console.log("download return " + res.tempFilePath)
       if (res.statusCode === 200) {
         console.log("download return " + res.tempFilePath)
-        wx.saveFile({
+        my.saveFile({
           tempFilePath: res.tempFilePath,
         success:function(res){
             var filepath=res.savedFilePath
-            wx.setStorageSync(num, filepath)
+            my.setStorageSync(num, filepath)
             console.log("download return key")
         }
         
@@ -175,7 +175,7 @@ function saveFileToLocal() {
       console.log(filePath)
     }
   })
-  wx.getSavedFileList({
+my.getSavedFileList({
     success: function (res) {
       console.log(res.fileList)
     }
@@ -184,9 +184,9 @@ function saveFileToLocal() {
 }
 //声音请求
  function getSound(key) {
-  const innerAudioContext = wx.createInnerAudioContext()
+  const innerAudioContext = my.createInnerAudioContext()
   innerAudioContext.autoplay = true
-  innerAudioContext.src = wx.getStorageSync(key)
+  innerAudioContext.src = my.getStorageSync(key)
   innerAudioContext.onPlay(() => {
     console.log('开始播放')
   })
@@ -229,7 +229,7 @@ my.httpRequest({
 success:function(res) {
     console.log(res.data)
     if (res.data.code == '101') {
-        wx.showToast({
+        my.showToast({
             title: res.data.message,
         })
     }
@@ -246,7 +246,7 @@ success:function(res) {
           var data = res.data.data;
           //调起微信支付
       
-          my.requestPayment({
+          my.RequestPayment({
             'timeStamp': data.timeStamp,
             'nonceStr': data.nonceStr,
             'package': data.package,

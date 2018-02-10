@@ -46,7 +46,7 @@ height: 70rpx;
 font-size:40rpx;
 }
 .hotInput{
-height: 110rpx;
+height: 50rpx;
 }
 .draw_box{
   margin-top:80rpx;
