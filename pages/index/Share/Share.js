@@ -159,12 +159,13 @@ Page({
                 content: '您领取了'+res.data.data.money,
                 duration: 1000,
               })
+              console.log("开始震动了");
               //提示领取成功
                my.vibrate({
-                success: () => {
-                
-                }
-              });
+                  success: () => {
+                    Console.log("震动了");
+                  }
+               });
             }else{
               my.showToast({
                 title: '提示',
