@@ -102,8 +102,8 @@
 }
 .hotInput{
   border-bottom:1px solid #ccc;
-  margin-top:12rpx;
-  width:70%;
+  margin-top:1rpx;
+  width:65%;
 }
 .shuoming{
   height:50rpx;
