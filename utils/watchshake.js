@@ -27,6 +27,9 @@ var watchShake= function() {
         }else{
           data.lengthss-=20;
         }
+        if(data.lengtharr<0){
+          data.lengtharr=0
+        }
         console.log(data.lengthss)
         console.log(difftime)
 
