@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/index/index1",
     "pages/index/Share/ShareHotMoney",
     "pages/index/Share/Share",
     "pages/square/square",
@@ -12,31 +13,35 @@
     "pages/mine/accuse/accuse"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#D95940",
-    "navigationBarTitleText": "包包乐翻天",
-    "navigationBarTextStyle": "#fff"
+   "textColor":"#999",
+   "defaultTitle":"摇摇包"
   },
   "tabBar": {
     "backgroundColor": "#fff",
-    "selectedColor": "#D95940",
-    "list": [
+   
+    "items": [
       {
-        "iconPath": "pages/image/9.png",
-        "selectedIconPath": "pages/image/10.png",
+        "icon": "pages/image/9.png",
+        "activeIcon": "pages/image/10.png",
         "pagePath": "pages/square/square",
         "text": "广场"
       },
       {
-        "iconPath": "pages/image/1.png",
-        "selectedIconPath": "pages/image/2.png",
+        "icon": "pages/image/1.png",
+        "activeIcon": "pages/image/2.png",
         "pagePath": "pages/index/index",
+        "text": "摇摇包"
+      },
+      {
+        "icon": "pages/image/1.png",
+        "activeIcon": "pages/image/2.png",
+        "pagePath": "pages/index/index1",
         "text": "摇摇包"
       },
       
       {
-        "iconPath": "pages/image/5.png",
-        "selectedIconPath": "pages/image/6.png",
+        "icon": "pages/image/5.png",
+        "activeIcon": "pages/image/6.png",
         "pagePath": "pages/mine/mine",
         "text": "我的"
       }

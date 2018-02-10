@@ -84,7 +84,7 @@ var initAccelerometer=function() {
   }
   downloadFile('kai0', 'https://www.chemchemchem.com/audio/num/kai0.mp3')
   downloadFile('kai1', 'https://www.chemchemchem.com/audio/num/kai1.mp3')
-  wx.onAccelerometerChange(function (res) {
+  my.onAccelerometerChange(function (res) {
     var wuli = 0 + res.x * res.x + res.y * res.y + res.z * res.z
     if (wuli > 2) {
       var sum = addLiliang(wuli) * 1;

@@ -1,8 +1,8 @@
 //app.js
 const config = require('./config')
 //var accelerometer = require('utils/accelerometer.js')
-import accelerometer  from 'utils/accelerometer.js';
-var login = require('utils/login.js')
+import accelerometer  from '/utils/accelerometer.js';
+import login from '/utils/login.js'
 App({
   globalData: {
     sessionInfo: '',

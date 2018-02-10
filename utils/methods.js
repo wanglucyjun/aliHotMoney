@@ -3,7 +3,7 @@ const hongbaoCreateUrl = require('../config').hongbaoCreateUrl
 const userinfoUrl = require('../config').userinfoUrl
 var login = require('./login');
 const app = getApp()
-var innerAudioContext = wx.createInnerAudioContext()
+
 
 //获取返回红包类型的模版
 function getModel(type) {
