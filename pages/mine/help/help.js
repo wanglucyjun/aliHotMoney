@@ -14,7 +14,7 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-      wx.request({
+      my.httpRequest({
         url: config.hongbaoHelpUrl,
         data: {
           //token: app.globalData.sessionInfo
@@ -35,7 +35,7 @@ Page({
         }
         ,
         fail: function (res) {
-
+            console.log(res.data)
         }
       })
       

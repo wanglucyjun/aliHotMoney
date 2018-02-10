@@ -1,9 +1,9 @@
-a:<view>
+<view>
 <view>
  <view class="page-section">
       <view class="title">请选择投诉原因</view>
       <view class="reason-list">
-      <radio-group bindchange="radioChange">
+      <radio-group onChange="radioChange">
         <view class="reason-item">
         <radio value="1" >欺诈</radio>
           
@@ -36,16 +36,16 @@ a:<view>
       <view class='setcontact'>
           <view class='setcontact-name fl' >电话：</view>
               <input type='number' placeholder='手机号' class='setcontact-phone '
-                    bindinput='phoneInput' ></input>
+                    onInput='phoneInput' ></input>
       </view>
     </view>
      <view class="page-section">
       <view class="title">简要描述一下投诉情况（可选）</view>
       <view class="textarea-wrp">
-        <textarea style="height: 4em" bindblur="contentInput"/>
+        <textarea style="height: 4em" onBlur="contentInput"/>
       </view>
    </view>
     <view class='submit_dis' a:if='{{!feedback.type}}'>确认投诉</view>
-    <view class='submit' bindtap='accuse' a:if='{{feedback.type}}'>确认投诉</view>
+    <view class='submit' onTap='accuse' a:if='{{feedback.type}}'>确认投诉</view>
 </view>
 </view>
