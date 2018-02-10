@@ -30,7 +30,7 @@
           <view class="square-item-col2 fl {{item.state==1?'hb':'hb-disable'}}">
               <image src='../image/say.png'  class='square-item-say'></image>
           </view>
-          <view class="square-item-col3 fl {{item.state==1?'hb':'hb-disable'}}" a:if="{{item.type!=99}}" data-hongbaoid='{{item.id}}' bindtap='toShare'>
+          <view class="square-item-col3 fl {{item.state==1?'hb':'hb-disable'}}" a:if="{{item.type!=99}}" data-hongbaoid='{{item.id}}' onTap='toShare'>
               <view class='square-item-col3-top'>
                   <view class='col3-left fl'>
                    <image src='../image/2.png' mode='widthFix' class='square-item-yao' a:if="{{item.type==1}}"></image>
@@ -52,7 +52,7 @@
                   <text class='square-item-type fl'  a:if="{{item.type==3}}">倾听包</text>
               </view>
           </view>
-          <view class="square-item-col3 fl hb"  a:if="{{item.type==99}}" data-appid='{{item.appid}}' bindtap='openOther'>
+          <view class="square-item-col3 fl hb"  a:if="{{item.type==99}}" data-appid='{{item.appid}}' onTap='openOther'>
               <view class='square-item-col3-top'>
                   <view class='col3-left fl'>
               <image src='{{item.question}}' mode='widthFix' class='square-item-yao'></image>
@@ -71,7 +71,7 @@
 
   </view>
       </block>
-  <view class='reload-page' bindtap='onReachBottom'>
+  <view class='reload-page' onTap='onReachBottom'>
         <text>点击加载下一页</text>
  </view>
 </view>
