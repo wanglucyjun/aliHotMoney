@@ -96,23 +96,23 @@ function get_Use_Balance(type){
     return isBalance
 }
 //得到用户基本账号余额信息
-function getAccountInfo(){
-  wx.request({
-    url: userinfoUrl,
-    data:{
-      'token': login.getSession().session.token,
-  },
-  success:function(res){
-    console.log(res.data.data);
-    var accountMoney=res.data.data.money;
-  }
-  })
-}
+// function getAccountInfo(){
+//   wx.request({
+//     url: userinfoUrl,
+//     data:{
+//       'token': login.getSession().session.token,
+//   },
+//   success:function(res){
+//     console.log(res.data.data);
+//     var accountMoney=res.data.data.money;
+//   }
+//   })
+// }
 //上传文件方法
 function uploadFile(obj) {
   var that = this
   var serverFilePath;
-  wx.uploadFile({
+  my.uploadFile({
     url: uploadUrl,
     filePath: obj.filePath,
     name: 'recordfile',
@@ -138,7 +138,7 @@ function downloadFile(num,netUrl){
   var that = this
   //var url = that.data.NetUrl
   console.log("download url is " + netUrl)
-  wx.downloadFile({
+  my.downloadFile({
     url: netUrl, 
     success: function (res) {
      // console.log("download return " + res.statusCode)
@@ -165,7 +165,7 @@ function downloadFile(num,netUrl){
 //保存文件到本地
 function saveFileToLocal() {
   var that = this
-  wx.saveFile({
+  my.saveFile({
     tempFilePath: that.data.tempFilePath,
     success: function (res) {
       var filePath = res.savedFilePath
@@ -207,7 +207,7 @@ function makeSign(){
 //创建红包接口请求
 function hongbaoCreate(type,question,power,Money,num,fee,filePath,voiceLength,moneyType,ispublic){
   var that = this
-wx.request({
+my.httprequest({
 
   url: hongbaoCreateUrl,
   data: {
@@ -237,7 +237,7 @@ success:function(res) {
         var orderid=res.data.data.orderid;
         if (res.data.data.needpay == '0'){
           //不需要调取支付，直接跳转
-          wx.navigateTo({
+          my.navigateTo({
             url: '/pages/index/Share/Share?id=' + res.data.data.hotid,
           })
         }
@@ -245,7 +245,7 @@ success:function(res) {
           var data = res.data.data;
           //调起微信支付
       
-          wx.requestPayment({
+          my.requestPayment({
             'timeStamp': data.timeStamp,
             'nonceStr': data.nonceStr,
             'package': data.package,
@@ -253,7 +253,7 @@ success:function(res) {
             'paySign': data.paySign,
             'success': function (res) {
               console.log(res);
-              wx.navigateTo({
+              my.navigateTo({
                 url: '/pages/index/Share/Share?id=' + data.hotid,
               });
             },
@@ -281,7 +281,7 @@ success:function(res) {
   uploadFile:uploadFile,
   downloadFile: downloadFile,
   hongbaoCreate: hongbaoCreate,
-  getAccountInfo: getAccountInfo,
+  //getAccountInfo: getAccountInfo,
   getSound: getSound,
   getRandom: getRandom,
   getShareWords: getShareWords
