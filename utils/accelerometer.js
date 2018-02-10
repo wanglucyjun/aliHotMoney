@@ -47,9 +47,9 @@ var addLiliang= function (liliang) {
 var sayWord=function () {
   var fileIndex = yyydata.saying.shift();
   if (fileIndex != undefined) {
-    var fileP = wx.getStorageSync(fileIndex)
+    var fileP = my.getStorageSync(fileIndex)
     console.log(fileIndex + fileP);
-    const innerAudioContext = wx.createInnerAudioContext()
+    const innerAudioContext = my.createInnerAudioContext()
     innerAudioContext.autoplay = true
     innerAudioContext.src = fileP
     innerAudioContext.onPlay(() => {
@@ -68,14 +68,14 @@ var startMove=function (func) {
   yyydata.currentIndex = 0;
   yyydata.liliang = [10, 23, Math.random() * 20,34,Math.random()*50];
   accelerometer.func = func
-  wx.startAccelerometer({
+  my.startAccelerometer({
     success: function (res) {
       console.log("the wuli " + res)
     }
   })
 };
 var stopMove=function() {
-  wx.stopAccelerometer({})
+  my.stopAccelerometer({})
 };
 var initAccelerometer=function() {
 
@@ -103,9 +103,9 @@ var initAccelerometer=function() {
   })
 };
 var getSound=function(key) {
-  const innerAudioContext = wx.createInnerAudioContext()
+  const innerAudioContext = my.createInnerAudioContext()
   innerAudioContext.autoplay = true
-  innerAudioContext.src = wx.getStorageSync(key)
+  innerAudioContext.src = my.getStorageSync(key)
   innerAudioContext.onPlay(() => {
     console.log('开始播放')
   })
@@ -119,18 +119,18 @@ function downloadFile(num, netUrl) {
   var that = this
   //var url = that.data.NetUrl
   console.log("download url is " + netUrl)
-  wx.downloadFile({
+  my.downloadFile({
     url: netUrl,
     success: function (res) {
       // console.log("download return " + res.statusCode)
       //  console.log("download return " + res.tempFilePath)
       if (res.statusCode === 200) {
         console.log("download return " + res.tempFilePath)
-        wx.saveFile({
+        my.saveFile({
           tempFilePath: res.tempFilePath,
           success: function (res) {
             var filepath = res.savedFilePath
-            wx.setStorageSync(num, filepath)
+            my.setStorageSync(num, filepath)
             console.log("download return key")
           }
 

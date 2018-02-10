@@ -9,11 +9,11 @@
               style="">
           <view class='header' >
           
-          <block a:if="{{!userInfo.avatarUrl}}" >
+          <block a:if="{{!userInfo.avatar}}" >
             <image class='header_size' src="../image/headDefault.jpg"/>
             </block>
-         <block  a:if="{{userInfo.avatarUrl}}">
-          <image src="{{userInfo.avatarUrl}}" class='header_size'></image>
+         <block  a:if="{{userInfo.avatar}}">
+          <image src="{{userInfo.avatar}}" class='header_size'></image>
           </block>
 
           </view>
@@ -21,7 +21,7 @@
           <!--摇摇红包  -->
             <view class='setHotMoney_detail' >
               <view class='setHotMoney_name fl' >设置武力</view>
-              <input type='digit' placeholder="{{power?power:'摇一摇设置值'}}" class='hotInput fr'      bindinput='powerInput' value="{{power?power:''}}"></input>
+              <input type='digit' onInput="powerInput" placeholder="{{power?power:'摇一摇设置值'}}" class='hotInput fr'      bindinput='powerInput' value="{{power?power:''}}"></input>
             </view>
 
             <view class='shuoming'>
@@ -35,12 +35,12 @@
             <view class='setHotMoney_detail'>
               <view class='setHotMoney_name fl' >赏金（元）</view>
               <input type='digit' placeholder='填写金额' class='hotInput fr'
-                     bindinput='MoneyInput'></input>
+                     onInput='MoneyInput'></input>
             </view>
             <view class='setHotMoney_detail'>
               <view class='setHotMoney_name fl' >数量（个）</view>
               <input type='number' placeholder='填写数量' class='hotInput fr'
-                     bindinput='NumberInput'></input>
+                     onInput='NumberInput'></input>
             </view>
            <view class='setSwitch_detail'>
                 <switch  bindchange='clickpublic'>投放广场</switch>

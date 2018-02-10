@@ -60,13 +60,14 @@ Page({
     login.checkSession({
       success: function (userInfo) {
         console.log('发送摇摇包界面');
-        console.log(userInfo);
         app.getBalance();
         that.refresh();
       }
     });
   },
   refresh:function(){
+    console.log("刷新")
+    console.log(app.globalData);
     var that = this;
     var tipArray = methods.getModel(0).tips;
     var num = Math.round(Math.random() * (tipArray.length - 1) + 0);
@@ -75,18 +76,18 @@ Page({
       userInfo: login.getSession().userInfo,
       balanceInfo: app.globalData.balanceInfo,
     })
-    console.log(login.getSession().userInfo)
+    
   },
   startMove: function () {
     var that=this;
-      accelerometer.startMove(function(sum){
-        console.log("sum");
-        console.log(sum);
-      that.setData({
-          power: sum.toFixed(2),
-          powerset:sum.toFixed(2)
-      });
-    });
+    //   accelerometer.startMove(function(sum){
+    //     console.log("sum");
+    //     console.log(sum);
+    //   that.setData({
+    //       power: sum.toFixed(2),
+    //       powerset:sum.toFixed(2)
+    //   });
+    // });
   },
   // 获取页面填入的值
   powerInput: function (e) {

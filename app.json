@@ -17,26 +17,27 @@
   },
   "tabBar": {
     "backgroundColor": "#fff",
+    "selectedColor": "#D95940",
    
     "items": [
       {
         "icon": "pages/image/9.png",
         "activeIcon": "pages/image/10.png",
         "pagePath": "pages/square/square",
-        "text": "广场"
+        "name": "广场"
       },
       {
         "icon": "pages/image/1.png",
         "activeIcon": "pages/image/2.png",
         "pagePath": "pages/index/index",
-        "text": "摇摇包"
+        "name": "摇摇包"
       },
       
       {
         "icon": "pages/image/5.png",
         "activeIcon": "pages/image/6.png",
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "name": "我的"
       }
     ]
   }

@@ -19,65 +19,31 @@ var LoginError = (function () {
 /**
  * 微信登录，获取 code 和 encryptData
  */
-var getWxLoginResult = function getLoginCode(callback) {
-  console.log('getWxLoginResult')
-  wx.login({
+var getMyLoginResult = function getLoginCode(callback) {
+  console.log('getMyLoginResult')
+  my.getAuthCode({
     success: function (loginResult) {
       
       console.log('loginsuccess')
-      wx.getUserInfo({
-        success: function (userResult) {
+      my.getAuthUserInfo({
+        success: function (userInfo) {
           callback(null, {
-            code: loginResult.code,
-            signature: userResult.signature,
-            rawData: userResult.rawData,
-            userInfo: userResult.userInfo,
+            code: loginResult.authCode,
+            userInfo: userInfo,
           });
         },
 
         fail: function (userError) {
-          var error = new LoginError('获取微信用户信息失败，请检查网络状态');
+          var error = new LoginError('获取支付宝用户信息失败，请检查网络状态');
           error.detail = userError;
           callback(error, null);
-          wx.getSetting({
-            success(res) {
-              console.log(res)
-              if (!res.authSetting['scope.userInfo']) {
-                wx.authorize({
-                  scope: 'scope.userInfo',
-                  success: function () {
-
-                  },
-                  fail: function () {
-                    wx.showModal({
-                      title: '申请权限',
-                      content: '开通用户信息权限才可以使用哦',
-                      success: function (res) {
-                        if (res.confirm) {
-                          console.log('用户点击确定')
-                          wx.openSetting({
-
-                          })
-                        } else if (res.cancel) {
-                          console.log('用户点击取消')
-                          wx.showToast({
-                            title: '需要开通权限哦',
-                          })
-                        }
-                      }
-                    })
-                    return
-                  }
-                })
-              }
-            }
-          })
+          
         },
       });
     },
 
     fail: function (loginError) {
-      var error = new LoginError('微信登录失败，请检查网络状态');
+      var error = new LoginError('支付宝登录失败，请检查网络状态');
       error.detail = loginError;
       callback(error, null);
     },
@@ -105,11 +71,12 @@ var login = function login(options) {
   console.log('login')
   options = utils.extend({}, defaultOptions, options);
 
-  var doLogin = () => getWxLoginResult(function (wxLoginError, wxLoginResult) {
+  var doLogin = () => getMyLoginResult(function (wxLoginError, wxLoginResult) {
     if (wxLoginError) {
       options.fail(wxLoginError);
       return;
     }
+    console.log(wxLoginResult.userInfo)
 
     var userInfo = wxLoginResult.userInfo;
     var code = wxLoginResult.code;
@@ -117,12 +84,12 @@ var login = function login(options) {
     var rawData = wxLoginResult.rawData;
     console.log('loginServer')
     // 请求服务器登录地址，获得会话信息
-    wx.request({
+    my.httpRequest({
       url: config.loginUrl,
       method: options.method,
       data: {
         code: code,
-        appid:'wxc5b3f7dd539abcff'
+        appid:'2018020202130257'
         //raw_data: rawData,
         //signature: signature,
       },
@@ -137,7 +104,7 @@ var login = function login(options) {
             //上传
             if (data.data.needInfo == 1) {
               userInfo.token = data.data.token
-              wx.request({
+              my.httpRequest({
                 url: config.updateUrl,
                 data: userInfo,
                 success: function (res) {
@@ -181,19 +148,19 @@ var login = function login(options) {
 
   doLogin();
 };
-var SESSION_KEY = 'weapp_session_' + 'wxc5b3f7dd539abcff';    //WX_SESSION_MAGIC_ID
+var SESSION_KEY = 'weapp_session_' + '2018020202130257';    //WX_SESSION_MAGIC_ID
 
 var Session = {
   get: function () {
-    return wx.getStorageSync(SESSION_KEY) || null;
+    return my.getStorageSync({key:SESSION_KEY}).data || null;
   },
 
-  set: function (session) {
-    wx.setStorageSync(SESSION_KEY, session);
+  set: function (data) {
+    my.setStorageSync({key:SESSION_KEY, data:data});
   },
 
   clear: function () {
-    wx.removeStorageSync(SESSION_KEY);
+    my.removeStorageSync({key:SESSION_KEY});
   },
 };
 var checkSession = function (options){
@@ -203,17 +170,16 @@ var checkSession = function (options){
   init.checkInitData({
     success: function (data) {
       var session = Session.get();
-      if (session) {
-        wx.checkSession({
-          success: function () {
-            options.success(session);
-          },
+//
+     // session={}
+      //session.session={token:"189-79ddf445d1b2a88b5d07918ee1f8f00e-abb2e81deacbdfadf6d485a66a105d1a"}
+     // session.userInfo={avatar:"https://tfs.alipayobjects.com/images/partner/T1k5tdXhVqXXXXXXXX",nickName:"viwofer@qq.com"}
+      //Session.set(session);
+//
 
-          fail: function () {
-            Session.clear();
-            login(options);
-          },
-        });
+
+      if (session) {
+        options.success(session);
       } else {
         login(options);
       }
