@@ -208,7 +208,7 @@ function makeSign(){
 function hongbaoCreate(type,question,power,Money,num,fee,filePath,voiceLength,moneyType,ispublic){
   console.log('create')
   var that = this
-my.httprequest({
+my.httpRequest({
 
   url: hongbaoCreateUrl,
   data: {

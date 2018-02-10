@@ -8,8 +8,8 @@ Page{
   display: flex;
   justify-content: space-around;
   color:#cfcfcf;
-  margin: 10rpx;
   font-size: 24rpx;
+  margin: 10rpx;
 }
 .bg{
     width: 100%;
@@ -229,7 +229,6 @@ Page{
   color:#fff;
   line-height:90rpx;
  font-size:28rpx;
-
 }
 .hotMoneyNum{
   width:680rpx;

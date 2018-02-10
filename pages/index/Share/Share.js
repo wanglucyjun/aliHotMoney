@@ -157,9 +157,12 @@ Page({
                 title: '提示',
                 content: '您领取了'+res.data.data.money
               })
-              
-
-
+              //提示领取成功
+               my.vibrate({
+                success: () => {
+                
+                }
+              });
             }else{
               my.showModal({
                 title: '提示',
@@ -213,7 +216,7 @@ Page({
     }
     console.log(url)
     my.switchTab({
-         url: url,
+      url: url,
       fail:function(msg){
         console.log(msg)
       }

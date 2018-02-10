@@ -44,9 +44,9 @@ var startMove=function(func) {
     console.log(data);
 
     data.func=func;
-     data.lasttime=0;
-     data.lengthss=2;
-     data.lengtharr=[1,2,3,4,5,6,7,8,9,10];
+    data.lasttime=0;
+    data.lengthss=2;
+    data.lengtharr=[1,2,3,4,5,6,7,8,9,10];
 
     console.log(data);
 };

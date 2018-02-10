@@ -14,12 +14,13 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-      wx.request({
+      my.httpRequest({
         url: config.hongbaoHelpUrl,
         data: {
           //token: app.globalData.sessionInfo
         },
         success: function (res) {
+          console.log('问题')
           console.log(res)
           if (res.data.data){
           var list = res.data.data.lists

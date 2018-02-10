@@ -12,8 +12,10 @@
     "pages/mine/accuse/accuse"
   ],
   "window": {
-   "textColor":"#999",
-   "defaultTitle":"摇摇包"
+   "textColor":"#fff",
+   "defaultTitle":"包包乐翻天",
+   "backgroundTextStyle": "light",
+   "titleBarColor": "#D95940"
   },
   "tabBar": {
     "backgroundColor": "#fff",
