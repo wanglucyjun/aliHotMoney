@@ -36,7 +36,7 @@
       <view class='setcontact'>
           <view class='setcontact-name fl' >电话：</view>
               <input type='number' placeholder='手机号' class='setcontact-phone '
-                    onInput='phoneInput' ></input>
+                    onBlur='phoneInput' ></input>
       </view>
     </view>
      <view class="page-section">

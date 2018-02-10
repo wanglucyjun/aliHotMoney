@@ -71,16 +71,19 @@ Page({
       success: function (userInfo) {
         that.data.feedback.token = login.getSession().session.token
         console.log(that.data.feedback)
-        wx.request({
+        my.httpRequest({
           url: config.accuseUrl,
           data: that.data.feedback,
           success: function (res) {
             console.log(res)
-            wx.showToast({
-              title: '提交投诉成功！',
+            my.showToast({
+      content: '提交投诉成功！',
+      type: 'success',
+      duration: 1000,
+
             });
 
-            setTimeout(function(){wx.navigateBack();},1000);
+            setTimeout(function(){my.navigateBack();},1000);
           }
           ,
           fail: function (res) {

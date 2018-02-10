@@ -76,19 +76,19 @@ Page({
     value = value*1;
     if (!userHongbao.dayCanDraw){
       my.showToast({
-        title: "今日不可提现",
+        content: "今日不可提现",
       })
       return false;
     }
     if (value > userHongbao.withdrawableMoney || value > userHongbao.oneTimesLimit) {
       my.showToast({
-        title: "提现额太大",
+        content: "提现额太大",
       })
       return false;
     }
     if (value < userHongbao.minWithdrawMoney) {
       my.showToast({
-        title: "提现额太小",
+        content: "提现额太小",
       })
       return false;
     }
@@ -154,7 +154,7 @@ Page({
       if (userHongbao.needQCode==1){
         if (!that.data.tempFilePath){
           my.showToast({
-            title: "请选择收款码！",
+            content: "请选择收款码！",
           })
           return;
         }
@@ -180,7 +180,7 @@ Page({
       }
       if (!that.data.drawdata.content||that.data.drawdata.content==""){
         my.showToast({
-          title: "请输入微信号！",
+          content: "请输入微信号！",
         })
         return;
       }
@@ -198,7 +198,7 @@ Page({
         that.data.drawdata.token = login.getSession().session.token;
         that.data.drawdata.money = that.data.money;
         
-        wx.request({
+        my.httpRequest({
           url: config.hongbaoDrawUrl,
           data: that.data.drawdata,
           success: function (res) {
@@ -217,7 +217,7 @@ Page({
                 })
               }
             }else{
-              wx.alert({
+              my.alert({
                 title: '提示',
                 content: res.data.message,
                 buttonText: '我知道了',
@@ -227,7 +227,7 @@ Page({
           ,
           fail: function (res) {
               my.showToast({
-                title: '提现失败，请稍后再试',
+                content: '提现失败，请稍后再试',
                
               })
           }

@@ -46,7 +46,7 @@
                <switch onChange='clickpublic'></switch>投放广场
                <switch onChange='clicksetting'  class='setting' ></switch>高级设置
               </view>
-              <view class="server">发红包投放广场会得摇摇豆一个</view>
+              <view class="server">发红包投放广场会得摇摇豆</view>
             <view class="server">需支付￥{{fuwufee}}服务费,优先使用余额￥{{balance}}</view>
            <view
             class='VoiceBtn' onTap='toShare'>生成摇摇武力包

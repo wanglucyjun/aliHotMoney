@@ -147,23 +147,28 @@ Page({
       success: function () {
         that.data.userHongbao.token = login.getSession().session.token
         //此处领红包
-        my.request({
+        my.httpRequest({
           url: config.hongbaoGetUrl,
           data: that.data.userHongbao,
           success: function (res) {
             console.log(res)
             if(res.data.code==0){
-              my.showModal({
+              my.showToast({
                 title: '提示',
-                content: '您领取了'+res.data.data.money
+                content: '您领取了'+res.data.data.money,
+                duration: 1000,
               })
-              
-
-
+              //提示领取成功
+               my.vibrate({
+                success: () => {
+                
+                }
+              });
             }else{
-              my.showModal({
+              my.showToast({
                 title: '提示',
-                content: res.data.message
+                content: res.data.message,
+                duration: 1000,
               })
             }
             //显示领取多少红包
@@ -213,7 +218,7 @@ Page({
     }
     console.log(url)
     my.switchTab({
-         url: url,
+      url: url,
       fail:function(msg){
         console.log(msg)
       }

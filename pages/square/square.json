@@ -1,5 +1,5 @@
 {
-    "enablePullDownRefresh": true,
+    "pullRefresh": true,
     "backgroundTextStyle": "dark",
     "defaultTitle": "摇摇包—广场",
     "titleBarColor": "#D95940"
