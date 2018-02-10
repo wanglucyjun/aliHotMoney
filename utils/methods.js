@@ -245,18 +245,11 @@ success:function(res) {
         else{
           var data = res.data.data;
           //调起微信支付
-      
-          my.RequestPayment({
-            'timeStamp': data.timeStamp,
-            'nonceStr': data.nonceStr,
-            'package': data.package,
-            'signType': data.signType,
-            'paySign': data.paySign,
-            'success': function (res) {
-              console.log(res);
-              my.navigateTo({
-                url: '/pages/index/Share/Share?id=' + data.hotid,
-              });
+        
+        my.tradePay({
+            orderStr: data.package,  // 即上述服务端已经加签的orderSr参数
+              success: (res) => {
+                my.navigateTo({url: '/pages/index/Share/Share?id=' + data.hotid,});
             },
             'fail': function (res) {
                console.log(res);
@@ -264,8 +257,7 @@ success:function(res) {
             'complete':function(res){
                console.log(res);
             }
-          })
-
+          });
         }
        
     }
