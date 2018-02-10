@@ -19,7 +19,7 @@ var watchShake= function() {
         data.lasttime=thistime;
 
         for(var i=0;i<data.defalutss.length;i++){
-              var tempdata=data.defalutss[i]
+              tempdata=data.defalutss[i]
               if(difftime<tempdata[0]){
                   data.lengthss+=tempdata[1];
                   break;
@@ -69,10 +69,15 @@ var init=function() {
        data.isShake=true;
    }
 };
-
+var setdefalutss=function(defalutss){
+    if(defalutss){
+    data.defalutss=defalutss;
+    }
+}
 
 module.exports = {
   stopMove: stopMove,
   startMove: startMove,
   init: init,
+  setdefalutss:setdefalutss
 };

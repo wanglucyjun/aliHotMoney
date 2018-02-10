@@ -60,6 +60,7 @@ Page({
     login.checkSession({
       success: function (userInfo) {
         console.log('发送摇摇包界面');
+        watchshake.setdefalutss(login.getInitData().defalutss);
         app.getBalance();
         that.refresh();
       }

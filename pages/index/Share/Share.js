@@ -47,7 +47,8 @@ Page({
     login.checkSession({
       success: function (userInfo) {
         console.log('领取红包界面');
-        console.log(userInfo);
+        watchshake.setdefalutss(login.getInitData().defalutss);
+        //app.getBalance();
         that.refresh();
       }
     });
