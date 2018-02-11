@@ -2,6 +2,7 @@
 var app = getApp();
 import config from '../../config'
 import login from '../../utils/login.js';
+import methods from '../../utils/methods.js';
 Page({
 
   /**
@@ -122,8 +123,8 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        if (res.data.data && res.data.data.list.length > 0) {
-
+        methods.receiveCode(res)
+        if (res.data.data && res.data.data.list.length >= 0) {
           that.data.drawlist.page = that.data.drawlist.page + 1
           if (that.data.drawlist.page == 1) {
             //res.data.data.page = that.data.sendedHongbao.page + 1
@@ -144,7 +145,7 @@ Page({
       }
       ,
       fail: function (res) {
-
+        methods.serverError
       }
     })
   },
@@ -159,7 +160,8 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        if (res.data.data && res.data.data.list.length > 0) {
+        methods.receiveCode(res)
+        if (res.data.data && res.data.data.list.length >=0) {
 
           that.data.receivedHongbao.page = that.data.receivedHongbao.page + 1
           if (that.data.receivedHongbao.page == 1) {
@@ -181,6 +183,7 @@ Page({
       }
       ,
       fail: function (res) {
+        methods.serverError(res)
 
       }
     })
@@ -195,7 +198,8 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        if (res.data.data && res.data.data.list.length>0){
+        methods.receiveCode(res)
+        if (res.data.data && res.data.data.list.length>=0){
           
           that.data.sendedHongbao.page = that.data.sendedHongbao.page+1
           if (that.data.sendedHongbao.page==1){
@@ -216,7 +220,7 @@ Page({
       }
       ,
       fail: function (res) {
-
+          methods.serverError(res)
       }
     })
   },

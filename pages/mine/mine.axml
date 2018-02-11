@@ -8,12 +8,12 @@
     </view>
     <view class='header_center fl'>
       <view class='header_name'>{{userInfo.nickName}}</view>
-      <view class='header_yue'>余额:￥{{userHongbao.allMoney}}</view>
+      <view class='header_yue'>我的券数:￥{{userHongbao.allMoney}}</view>
       <view class='header_yue'>可提:￥{{userHongbao.withdrawableMoney}}</view>
     </view>
     <view class='header_right fr'  onTap="getMoney">
         <image src='../image/hot.png' mode='widthFix' class='hotMoney_tu'></image>
-        <view class='header-right_tixian'>提取</view>
+        <view class='header-right_tixian'>兑换</view>
      </view>
      
     </view>
@@ -31,7 +31,7 @@
     <view class='content'>
     <view class='content_bottom'  a:if="{{mineRecod==1}}"  >
         <view class='Money_Number fl'>
-          <view class='Money_name'>金额（元）</view>
+          <view class='Money_name'>券数（个）</view>
           <view class='money_num'>{{sendedHongbao.sendedMoney}}</view>
         </view>
         <view class='Money_Number fl'>
@@ -43,7 +43,7 @@
     
     <view class='content_bottom'  a:if="{{mineRecod==2}}" >
         <view class='Money_Number fl'>
-          <view class='Money_name'>金额（元）</view>
+          <view class='Money_name'>券数（个）</view>
           <view class='money_num'>{{receivedHongbao.receivedMoney}}</view>
         </view>
         <view class='Money_Number fl'>
@@ -59,7 +59,7 @@
           <view class='money_num'>{{userHongbao.dayDrawNum}}</view>
         </view>
         <view class='Money_Number fl'>
-          <view class='Money_name'>可提次数</view>
+          <view class='Money_name'>可兑次数</view>
           <view class='money_num'>{{userHongbao.dayLimit-userHongbao.dayDrawNum}}</view>
         </view>
     
