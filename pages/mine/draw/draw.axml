@@ -1,31 +1,31 @@
 <view class='container'>
 <view class='draw_box'>
   <view class='balance'> 
-    <view class='draw_text fl'>账户余额</view>
-    <view class='balance_money'>{{userHongbao.allMoney}} 元</view>
+    <view class='draw_text fl'>账户券值</view>
+    <view class='balance_money'>{{userHongbao.allMoney}} </view>
   </view>
   <view class='balance'> 
-    <view class='draw_text fl'>可用余额</view>
-    <view class='balance_money'>{{userHongbao.withdrawableMoney}} 元</view>
+    <view class='draw_text fl'>可用券值</view>
+    <view class='balance_money'>{{userHongbao.withdrawableMoney}} </view>
   </view>
-  <view class='draw_text'>提取金额</view>
+  <view class='draw_text'>兑换</view>
   <view class='setHotMoney_detail' >
-    <view class='setHotMoney_name fl' >￥</view>
+    <view class='setHotMoney_name fl' >值</view>
     <input type='digit'  class='hotInput'
                     onBlur='MoneyInput'a:if="{{userHongbao.dayCanDraw==1}}" value='{{money}}'></input>
-    <view class='setHotMoney_name' a:if="{{userHongbao.dayCanDraw==0}}" ><text class='draw_text4'>今天不可以提取</text></view>
+    <view class='setHotMoney_name' a:if="{{userHongbao.dayCanDraw==0}}" ><text class='draw_text4'>今天不可以兑换</text></view>
   </view>
-  <view  class='draw_text2'>手续费{{drawfee}}，实际到账{{actualfee}}，<text>全部提取</text></view>
+  <view  class='draw_text2'>手续费{{drawfee}}，实际到账{{actualfee}}，<text>全部兑换</text></view>
 
-  <view  class='draw_text5'>提取金额最小为{{userHongbao.minWithdrawMoney}}元，最大为{{userHongbao.oneTimesLimit}}元，暂时不支持提取到余额，初创企业，多多包涵</view>
+  <view  class='draw_text5'>兑换券值最小为{{userHongbao.minWithdrawMoney}}，最大为{{userHongbao.oneTimesLimit}}</view>
 
   <view class='account' a:if="{{drawdata.type==2&&userHongbao.needAccount==1}}">
     <view class='account-name fl' >支付号：</view>
     <input  type='text' placeholder='请输入帐号' class='account-value'
                      onInput='accountInput' ></input>
   </view>
-  <view class='disdraw' a:if="{{!canDraw}}" >申请提取</view>
-  <view class='draw' onTap="applyGetMoney" a:if="{{canDraw}}">申请提取</view>
+  <view class='disdraw' a:if="{{!canDraw}}" >申请兑换</view>
+  <view class='draw' onTap="applyGetMoney" a:if="{{canDraw}}">申请兑换</view>
   <view  class='draw_text3'>1-5个工作日到账</view>
 </view>
 </view>

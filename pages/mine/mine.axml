@@ -24,8 +24,8 @@
 </view>
 
     <view class='nav'>
-      <text class="nav_con {{mineRecod==1? 'on':''}}" data-num="1" onTap='changeTab'>我发出的</text>
-      <text class="nav_con {{mineRecod==2? 'on':''}}" data-num="2" onTap='changeTab'>我收到的</text>
+      <text class="nav_con {{mineRecod==1? 'on':''}}" data-num="1" onTap='changeTab'>我发布的</text>
+      <text class="nav_con {{mineRecod==2? 'on':''}}" data-num="2" onTap='changeTab'>我领取的</text>
       <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" onTap='changeTab'>我提取的</text>
     </view>
     <view class='content'>
@@ -55,12 +55,12 @@
 
 <view class='content_bottom'  a:if="{{mineRecod==3}}" >
         <view class='Money_Number fl'>
-          <view class='Money_name'>今日次数</view>
+          <view class='Money_name'>已兑次数</view>
           <view class='money_num'>{{userHongbao.dayDrawNum}}</view>
         </view>
         <view class='Money_Number fl'>
-          <view class='Money_name'>可兑次数</view>
-          <view class='money_num'>{{userHongbao.dayLimit-userHongbao.dayDrawNum}}</view>
+          <view class='Money_name'>限兑次数</view>
+          <view class='money_num'>{{userHongbao.dayLimit}}</view>
         </view>
     
     </view>
@@ -72,7 +72,7 @@
       <view class='sended-list-item' >
         <view class='sended-list-item-box'  data-hongbaoid='{{item.id}}' onTap='toShare'>
           <view class='sended-list-item-center fl'>
-            <text class='sended-list-item-money' a:if="{{item.type==1}}">摇摇包  </text>
+            <text class='sended-list-item-money' a:if="{{item.type==1}}">摇摇券  </text>
             <text class='sended-list-item-money' a:if="{{item.type==2}}">口令包  </text>
             <text class='sended-list-item-money' a:if="{{item.type==3}}">倾听包  </text>
             <text class='sended-list-item-money' a:if="{{item.type==4}}">猜谜包  </text>
@@ -96,7 +96,7 @@
           </view>
           <view class='received-list-item-center fl'>
             <view class='received-list-item-text'>{{item.name}}</view>
-            <text class='received-list-item-money' a:if="{{item.type==1}}">摇摇包</text>
+            <text class='received-list-item-money' a:if="{{item.type==1}}">摇摇券</text>
             <text class='received-list-item-money' a:if="{{item.type==2}}">口令包</text>
             <text class='received-list-item-money' a:if="{{item.type==3}}">倾听包</text>
             <text class='received-list-item-money' a:if="{{item.type==4}}">猜谜包</text>
