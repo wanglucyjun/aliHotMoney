@@ -38,7 +38,7 @@ Page{
   padding-top: 12rpx;
   padding-bottom: 12rpx;
   background-color: #FFFFFF;
-  border-radius: 2rpx; 
+  border-radius: 2rpx;
 
 }
 .reason-item radio{
