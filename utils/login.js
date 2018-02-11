@@ -22,6 +22,7 @@ var LoginError = (function () {
 var getMyLoginResult = function getLoginCode(callback) {
   console.log('getMyLoginResult')
   my.getAuthCode({
+    scopes: 'auth_user',
     success: function (loginResult) {
       
       console.log('loginsuccess')
@@ -40,6 +41,7 @@ var getMyLoginResult = function getLoginCode(callback) {
 
         fail: function (userError) {
           var error = new LoginError('获取支付宝用户信息失败，请检查网络状态');
+          console.log(JSON.stringify(userError))
           error.detail = userError;
           callback(error, null);
           
@@ -81,7 +83,7 @@ var login = function login(options) {
       options.fail(wxLoginError);
       return;
     }
-    console.log(wxLoginResult.userInfo)
+    console.log(JSON.stringify(wxLoginResult.userInfo))
 
     var userInfo = wxLoginResult.userInfo;
     var code = wxLoginResult.code;

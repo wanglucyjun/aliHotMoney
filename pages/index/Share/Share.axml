@@ -11,21 +11,21 @@
         <view class='kouling'> {{hongbaoDetail.senderName}}</view>
       </view>
       <view class='ChangeHot'>
-        <!--摇一摇领红包-->
+        <!--摇一摇领赏金-->
         <view a:if="{{hongbaoDetail.type==1}}">
           <view class="share_box" >
-            <view class='question1'>小伙伴摇摇力超过武力值<text style="font-size:50rpx">{{hongbaoDetail.content.question}}</text>即可领红包</view>
+            <view class='question1'>小伙伴摇摇力超过武力值<text style="font-size:50rpx">{{hongbaoDetail.content.question}}</text>即可领赏金</view>
           </view>
           <view a:if="{{hongbaoDetail.state==1}}">
             <view a:if="{{hongbaoDetail.hadSend==0}}">
               <view class='answer2'a:if="{{moving===true}}">摇一摇的武力值是{{userHongbao.text}}</view>
             </view>
-            <view class='answer2ok' a:if="{{hongbaoDetail.hadSend==1}}">已领红包</view>
+            <view class='answer2ok' a:if="{{hongbaoDetail.hadSend==1}}">已领赏金</view>
           </view>
           <view class='answer2ok' a:if="{{hongbaoDetail.state==2}}">活动已完毕</view>
         </view>
         
-        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">领广场红包每次消耗摇摇豆，摇摇豆余额：{{yaoyaodou}}</view>
+        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">领广场赏金每次消耗摇摇豆，摇摇豆余额：{{yaoyaodou}}</view>
       </view>
 
       <view class='share_box marginTop'>

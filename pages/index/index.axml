@@ -18,7 +18,7 @@
 
           </view>
           <view class="setHotMoney">
-          <!--摇摇红包  -->
+          <!--摇摇包  -->
             <view class='setHotMoney_detail' >
               <view class='setHotMoney_name fl' >设置武力</view>
               <input type='digit' onInput="powerInput" placeholder="{{power?power:'摇一摇设置值'}}" class='hotInput fr'      bindinput='powerInput' value="{{power?power:''}}"></input>
@@ -46,7 +46,7 @@
                <switch onChange='clickpublic'></switch>投放广场
                <switch onChange='clicksetting'  class='setting' ></switch>高级设置
               </view>
-              <view class="server">发红包投放广场会得摇摇豆</view>
+              <view class="server">投放广场会得摇摇豆</view>
             <view class="server">需支付￥{{fuwufee}}服务费,优先使用余额￥{{balance}}</view>
            <view
             class='VoiceBtn' onTap='toShare'>生成摇摇武力包
@@ -65,7 +65,7 @@
             </view>
 
             <view class='settingAll'>
-            <text class='fl'>红包领取时限</text>
+            <text class='fl'>包领取时限</text>
              <input placeholder='10s' class='hotInput fr'
                      ></input>
                     </view>

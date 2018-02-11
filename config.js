@@ -2,7 +2,7 @@
  * 小程序配置文件,chang name
  */
 
-var host = "https:\\wx.c4chem.com"
+var host = "https://wx.c4chem.com"
 
 var config = {
 

@@ -22,13 +22,15 @@ var InitData = {
   },
 };
 var init = function (options) {
-  console.log('init')
+  console.log('init1')
+  console.log(JSON.stringify(config.initUrl))
   options = utils.extend({}, defaultOptions, options);
+
   my.httpRequest({
     url: config.initUrl,
     success: function (res) {
       console.log('success')
-      console.log(res.data)
+      console.log(JSON.stringify(res.data))
       if (res.data.data) {
         InitData.set(res.data.data);
         options.success(res.data.data);
@@ -36,7 +38,7 @@ var init = function (options) {
     },
     fail: function (res) {
       console.log('fail')
-      console.log(res)
+      console.log( JSON.stringify(res))
     },
   })
 };

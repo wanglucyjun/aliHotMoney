@@ -13,7 +13,7 @@
     </view>
     <view class='header_right fr'  onTap="getMoney">
         <image src='../image/hot.png' mode='widthFix' class='hotMoney_tu'></image>
-        <view class='header-right_tixian'>提现</view>
+        <view class='header-right_tixian'>提取</view>
      </view>
      
     </view>
@@ -26,7 +26,7 @@
     <view class='nav'>
       <text class="nav_con {{mineRecod==1? 'on':''}}" data-num="1" onTap='changeTab'>我发出的</text>
       <text class="nav_con {{mineRecod==2? 'on':''}}" data-num="2" onTap='changeTab'>我收到的</text>
-      <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" onTap='changeTab'>我提现的</text>
+      <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" onTap='changeTab'>我提取的</text>
     </view>
     <view class='content'>
     <view class='content_bottom'  a:if="{{mineRecod==1}}"  >
