@@ -24,14 +24,14 @@ var getMyLoginResult = function getLoginCode(callback) {
   my.getAuthCode({
     scopes: 'auth_user',
     success: function (loginResult) {
-      
+     
       console.log('loginsuccess')
       my.getAuthUserInfo({
         success: function (userInfo) {
-
+          console.log(JSON.stringify(userInfo))
           var ui={};
           ui.avatarUrl=userInfo.avatar;
-          ui.account=userInfo.nickName;
+          ui.nickName=userInfo.nickName;
 
           callback(null, {
             code: loginResult.authCode,

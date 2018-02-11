@@ -68,6 +68,13 @@ Page({
    */
   onReachBottom: function () {
     console.log("onReachBottom")
+    my.showLoading({
+      content: '加载中...',
+
+    });
+    setTimeout(() => {
+      my.hideLoading();
+    }, 1000);
     this.getReceivedHongbao();
   },
   /**

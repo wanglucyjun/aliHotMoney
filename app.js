@@ -54,7 +54,7 @@ App({
     //   console.log(userInfo)
     // }})
     //请求成功
-    watchshake.init()
+    //watchshake.init()
   },
   //获取提现初始值
   getBalance: function () {

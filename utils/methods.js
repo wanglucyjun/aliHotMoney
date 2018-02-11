@@ -230,7 +230,7 @@ success:function(res) {
     console.log(res.data)
     if (res.data.code == '101') {
         my.showToast({
-            title: res.data.message,
+            content: res.data.message,
         })
     }
     if (res.data.code == '0') {

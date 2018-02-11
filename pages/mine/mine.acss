@@ -1,5 +1,5 @@
 /* pages/mine/mine.wxss */
-Page{
+.a-page{
   background: #f3f5fa;
 }
 .mine_header{

@@ -25,7 +25,7 @@
     </view>
     <view class='share_box marginTop'>
       <view class='btn_box'>
-        <button class='btn_Btn' open-type="share">右上角转发到好友或着群里</button> 
+        <button class='btn_Btn' open-type="share">分享</button> 
         <button class='btn_Btn' style="display:none" >生成朋友圈分享图</button> 
         <navigator class='btn_Btn' open-type="navigateBack">返回</navigator> 
       </view>

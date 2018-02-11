@@ -118,7 +118,7 @@ Page({
       },
       success: function (res) {
         console.log('refreshsuccess')
-        console.log(res)
+        console.log(JSON.stringify(res))
        
         if (res.data.code=='0'){
           app.getBalance()
@@ -163,7 +163,14 @@ Page({
               //提示领取成功
                my.vibrate({
                   success: () => {
-                    Console.log("震动了");
+                    Console.log("震动了1");
+                   
+                  }
+                });
+                my.vibrate({
+                  success: () => {
+                    Console.log("震动了2");
+                   
                   }
                });
             }else{
@@ -188,6 +195,7 @@ Page({
   },
   //开始摇手机
   startMove: function () {
+    console.log("ShareStart");
     var that = this
     that.setData({
       moving: true

@@ -13,7 +13,8 @@ Page({
     sendedHongbao:{},//发送的红包信息
     receivedHongbao:{},//接受的红包信息
     drawlist:{},//提现记录
-    mineRecod:1
+    mineRecod:1,
+    page:1
   },
 
   /**
@@ -79,15 +80,31 @@ Page({
    */
   onReachBottom: function () {
     console.log("onReachBottom")
+     my.showLoading({
+      content: '加载中...',
+
+    });
+    setTimeout(() => {
+      my.hideLoading();
+    }, 1000);
     if (this.data.mineRecod==1){
       this.getSendedHongbao();
+      this.setData({
+              page: this.data.sendedHongbao.page+1
+    });
     } else if (this.data.mineRecod == 2){
       this.getReceivedHongbao();
+      this.setData({
+              page: this.data.receivedHongbao.page+1
+    });
     }
     else if (this.data.mineRecod == 3) {
       this.getDrawlist();
+      this.setData({
+              page: this.data.drawlist.page+1
+    });
     }
-
+    
   },
   getDrawlist: function () {
     var that = this;
@@ -99,7 +116,7 @@ Page({
         page: that.data.drawlist.page + 1
       },
       success: function (res) {
-        console.log(res)
+        console.log(JSON.stringify(res))
         if (res.data.data && res.data.data.list.length > 0) {
 
           that.data.drawlist.page = that.data.drawlist.page + 1
@@ -136,7 +153,7 @@ Page({
         page: that.data.receivedHongbao.page + 1
       },
       success: function (res) {
-        console.log(res)
+        console.log(JSON.stringify(res))
         if (res.data.data && res.data.data.list.length > 0) {
 
           that.data.receivedHongbao.page = that.data.receivedHongbao.page + 1
@@ -172,7 +189,7 @@ Page({
         page: that.data.sendedHongbao.page + 1
       },
       success: function (res) {
-        console.log(res)
+        console.log(JSON.stringify(res))
         if (res.data.data && res.data.data.list.length>0){
           
           that.data.sendedHongbao.page = that.data.sendedHongbao.page+1

@@ -71,7 +71,7 @@
 
   </view>
       </block>
-  <view class='reload-page' onTap='onReachBottom'>
+   <view class='reload-page' onTap='onReachBottom' style="display:{{'none'}}">
         <text>点击加载下一页</text>
  </view>
 </view>

@@ -216,7 +216,7 @@ Page({
                 that.refresh();
               }else{
                 my.showToast({
-                  title: res.data.message,
+                  content: res.data.message,
                 })
               }
             }else{
