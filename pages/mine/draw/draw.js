@@ -149,44 +149,8 @@ Page({
       return ;
     }
     console.log(drawdata);
-    if (drawdata.type==1){
-      console.log('1');
-      if (userHongbao.needQCode==1){
-        if (!that.data.tempFilePath){
-          my.showToast({
-            content: "请选择收款码！",
-          })
-          return;
-        }
-
-        console.log('needQCode');
-
-        methods.uploadFile({
-          filePath: that.data.tempFilePath, success: function (obj) {
-            that.data.drawdata.content = obj;
-            that.getMoney();
-            return;
-          }
-        })
-        return;
-     }else{
-        that.data.drawdata.content = userHongbao.qCode;
-     }
-   } else if (drawdata.type==2){
-      console.log('2');
-      console.log(that.data.drawdata.content);
-      if (userHongbao.needAccount==0){
-        that.data.drawdata.content = userHongbao.account;
-      }
-      if (!that.data.drawdata.content||that.data.drawdata.content==""){
-        my.showToast({
-          content: "请输入微信号！",
-        })
-        return;
-      }
-    }else{
-      console.log('3');
-    }
+    drawdata.type=2
+    //此处检验用户授权
     console.log('4');
     that.getMoney();
   },
@@ -207,7 +171,7 @@ Page({
               if (res.data.code == "0"){
                 my.alert({
                   title: '提示',
-                  content: '提现申请成功，1～5个工作日到账',
+                  content: '回收申请成功，1～5个工作日到账',
                   buttonText: '我知道了',
                   success(){
                     setTimeout(function(){my.navigateBack();},1000);
@@ -237,27 +201,5 @@ Page({
         })
       }
     })
-  },
-  radioChange: function (e) {
-    console.log('radio发生change事件，携带value值为：', e.detail.value);
-    this.data.drawdata.type = e.detail.value;
-    this.data.drawdata.content='';
-    this.setData({
-      drawdata: this.data.drawdata
-    })
-  },
-  chooseImage:function(e){
-    var that = this;
-    my.chooseImage({
-      count:1,
-      success: function (res) {
-        that.data.tempFilePath=res.tempFilePaths[0];
-      }
-    })
-  },
-  accountInput:function(e){
-    var that = this;
-    console.log(e.detail.value)
-    that.data.drawdata.content = e.detail.value;
   }
 })

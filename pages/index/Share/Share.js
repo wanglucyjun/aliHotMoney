@@ -50,6 +50,11 @@ Page({
         watchshake.setdefalutss(login.getInitData().defalutss);
         //app.getBalance();
         that.refresh();
+      },
+      fail:function(){
+        my.navigateBack({
+          delta: 1
+        });
       }
     });
 },

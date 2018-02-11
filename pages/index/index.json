@@ -1,5 +1,6 @@
 {
-  "defaultTitle": "摇摇包",
-  "titleBarColor": "#D95940"
-     
+    "pullRefresh": true,
+    "backgroundTextStyle": "dark",
+    "defaultTitle": "摇摇健身广场",
+    "titleBarColor": "#D95940"
 }

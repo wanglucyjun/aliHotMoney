@@ -18,37 +18,11 @@
   <view  class='draw_text2'>手续费{{drawfee}}，实际到账{{actualfee}}，<text>全部提取</text></view>
 
   <view  class='draw_text5'>提取金额最小为{{userHongbao.minWithdrawMoney}}元，最大为{{userHongbao.oneTimesLimit}}元，暂时不支持提取到余额，初创企业，多多包涵</view>
-  <view class='draw_text'>提取方式</view>
-   <radio-group onChange="radioChange">
-        <view class="draw-item">
-        <radio value="1" 
-         checked='true'></radio>收款码
-    <view class='qcode fr' a:if="{{drawdata.type==1&&userHongbao.needQCode==1}}" >
-      <view class='qcode-select ' onTap='chooseImage' >选择收款码</view>
-    </view>
-        </view>
-        <view class="draw-item">
-        <radio value="2" ></radio>转账
-          
-        </view>
-        <view class="draw-item">
-        <radio value="3" disabled="true"></radio>提取到余额
-        </view>
-  </radio-group>
 
   <view class='account' a:if="{{drawdata.type==2&&userHongbao.needAccount==1}}">
     <view class='account-name fl' >支付号：</view>
     <input  type='text' placeholder='请输入帐号' class='account-value'
                      onInput='accountInput' ></input>
-  </view>
-  <view class='account' a:if="{{drawdata.type==1}}">
-    <text  class='draw_text4'>客服扫描收款码后支付</text>
-  </view>
-  <view class='account' a:if="{{drawdata.type==2&&userHongbao.needAccount==0}}">
-    <text  class='draw_text4'>客服加好友{{drawdata.account}}转账</text>
-  </view>
-  <view class='account' a:if="{{drawdata.type!=1&&drawdata.type!=2}}">
-    <text  class='draw_text4'>暂时不支持直接提取到零钱</text>
   </view>
   <view class='disdraw' a:if="{{!canDraw}}" >申请提取</view>
   <view class='draw' onTap="applyGetMoney" a:if="{{canDraw}}">申请提取</view>

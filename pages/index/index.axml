@@ -1,86 +1,88 @@
-<!--pages/kouling/kouling.wxml-->
-
-<view class="container">
- <view class='con'>
- <!--控制导航  -->
-    <!--容器  -->
-    <view class="HotMoney_box">
-        <view class='watchword' 
-              style="">
-          <view class='header' >
-          
-          <block a:if="{{!userInfo.avatarUrl}}" >
-            <image class='header_size' src="../image/headDefault.jpg"/>
-            </block>
-         <block  a:if="{{userInfo.avatarUrl}}">
-          <image src="{{userInfo.avatarUrl}}" class='header_size'></image>
-          </block>
+<view class="container" >
+<view class='head'>
+  <view class='head_content'>
+    <view class='Money_Number fl'>
+          <view class='Money_name'>今日人次</view>
+          <view class='money_num'>{{receivedHongbao.todayPeople}}</view>
+    </view>
+    <!-- <view class='Money_Number fl'>
+          <view class='Money_name'>今日个数</view>
+          <view class='money_num'>{{receivedHongbao.todayActive}}</view>
+    </view> -->
+    <view class='Money_Number fl'>
+          <view class='Money_name'>今日券数</view>
+          <view class='money_num'>{{receivedHongbao.todayMoney}}</view>
+    </view>
+  </view>
+</view>
+<view class='body'>
+ <block a:for="{{receivedHongbao.list}}"  a:key="id" a:for-index="idx" a:for-item="item" data-idx="{{idx}}" >
+      <view class='square-item'  >
+        <view class='square-item-box'  >
+          <view class='square-item-col1 fl'>
+            <image src='{{item.icon}}' mode='widthFix' class='square-item-logo'></image>
 
           </view>
-          <view class="setHotMoney">
-          <!--摇摇包  -->
-            <view class='setHotMoney_detail' >
-              <view class='setHotMoney_name fl' >设置武力</view>
-              <input type='digit' onInput="powerInput" placeholder="{{power?power:'摇一摇设置值'}}" class='hotInput fr'      bindinput='powerInput' value="{{power?power:''}}"></input>
-            </view>
+          <view class="square-item-col2 fl {{item.state==1?'hb':'hb-disable'}}">
+              <image src='../image/say.png'  class='square-item-say'></image>
+          </view>
+          <view class="square-item-col3 fl {{item.state==1?'hb':'hb-disable'}}" a:if="{{item.type!=99}}" data-hongbaoid='{{item.id}}' onTap='toShare'>
+              <view class='square-item-col3-top'>
+                  <view class='col3-left fl'>
+                   <image src='../image/2.png' mode='widthFix' class='square-item-yao' a:if="{{item.type==1}}"></image>
+                    <image src='../image/8.png' mode='widthFix' class='square-item-yao'a:if="{{item.type==2}}"></image>
+                     <image src='../image/4.png' mode='widthFix' class='square-item-yao'a:if="{{item.type==3}}"></image>
+                  </view>
+                  <view class='col3-right fr'  a:if="{{item.type==1}}">
+                                        {{item.question}}
+                  </view>
+                  <view >
+                    <view class='square-item-title'>{{item.title}}</view>
+                    <view class='square-item-detail' >{{item.money}}个{{item.num}}次，可领剩{{item.left_num}}次</view>
+                  </view>
 
-            <view class='shuoming'>
-              <text>{{shuoming}}</text>
-            </view>
-            
-            <!-- <view class='try'>
-              <button class='try' a:if="{{moving===false}}" bindtap='startMove'>试一下？点我，摇手机</button>
-              <text class='try'a:if="{{moving===true}}">刚才最大的武力值是{{power}}</text>
-            </view> -->
-            <view class='setHotMoney_detail'>
-              <view class='setHotMoney_name fl' >赏金（元）</view>
-              <input type='digit' placeholder='填写金额' class='hotInput fr'
-                     onInput='MoneyInput'></input>
-            </view>
-            <view class='setHotMoney_detail'>
-              <view class='setHotMoney_name fl' >数量（个）</view>
-              <input type='number' placeholder='填写数量' class='hotInput fr'
-                     onInput='NumberInput'></input>
-            </view>
-           <view class='setSwitch_detail'>
-               <switch onChange='clickpublic'></switch>投放广场
-               <switch onChange='clicksetting'  class='setting' ></switch>高级设置
               </view>
-              <view class="server">投放广场会得摇摇豆</view>
-            <view class="server">需支付￥{{fuwufee}}服务费,优先使用余额￥{{balance}}</view>
-           <view
-            class='VoiceBtn' onTap='toShare'>生成摇摇武力包
-            </view>
+              <view class='square-item-col3-bottom'>
+                  <text class='square-item-type fl'  a:if="{{item.type==1}}">摇摇包</text>
+                  <text class='square-item-type fl'  a:if="{{item.type==2}}">口令包</text>
+                  <text class='square-item-type fl'  a:if="{{item.type==3}}">倾听包</text>
+              </view>
           </view>
+          <view class="square-item-col3 fl hb"  a:if="{{item.type==99}}" data-appid='{{item.appid}}' onTap='openOther'>
+              <view class='square-item-col3-top'>
+                  <view class='col3-left fl'>
+              <image src='{{item.question}}' mode='widthFix' class='square-item-yao'></image>
+                  </view>
+                  <view >
+                    <view class='square-item-title'>{{item.title}}</view>
+                   
+                  </view>
 
-
+              </view>
+              <view class='square-item-col3-bottom'>
+                  <text class='square-item-type fl'>{{title.name}}</text>
+              </view>
+          </view>
         </view>
-    </view>
-     <view>
-     <block a:if="{{advancedSetting}}" >
-           <!-- <view class='settingAll'>
-             <view class=' fl' >设置转发标题</view>
-              <input placeholder='新年快乐大吉大利' class='hotInput fr'
-                     bindinput='shareInput'></input>
-            </view>
 
-            <view class='settingAll'>
-            <text class='fl'>包领取时限</text>
-             <input placeholder='10s' class='hotInput fr'
-                     ></input>
-                    </view>
-                    -->
-          <view class='settingAll'>
-            <text class='fl'>奖励分配</text>
-           <radio-group class="radio-group fr" onChange="radioChange">
-            <label class="radio" a:for="{{items}}">
-            <radio value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
-            </label>
-            </radio-group>
-            </view>
+  </view>
       </block>
+   <view class='reload-page'>
+        <text></text>
+   </view>
+</view>
+</view>
+<view class='menu' >
+    <view class='menu-content fl'onTap="toyaoyao">
+          <image src='../image/2.png' mode='widthFix' class='menu-logo' ></image>
+          <view class='menu-name'>摇摇</view>
     </view>
-    <view class='exmple fl' onTap='clickexample'>查看示例</view>
-    <view class='help fr' onTap='clickhelp'>常见问题</view>
- </view>
+    <!-- <view class='Money_Number fl'>
+          <view class='Money_name'>今日个数</view>
+          <view class='money_num'>{{receivedHongbao.todayActive}}</view>
+    </view> -->
+    <view class='menu-content fl' onTap="tomine">
+         <image src='../image/6.png' mode='widthFix' class='menu-logo' ></image>
+         <view class='menu-name'>我的</view>
+    </view>
 </view>

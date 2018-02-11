@@ -26,6 +26,7 @@ var getMyLoginResult = function getLoginCode(callback) {
     success: function (loginResult) {
      
       console.log('loginsuccess')
+      console.log(JSON.stringify(loginResult))
       my.getAuthUserInfo({
         success: function (userInfo) {
           console.log(JSON.stringify(userInfo))

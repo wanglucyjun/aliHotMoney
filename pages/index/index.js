@@ -1,225 +1,172 @@
-//index.js
-//获取应用实例
-const app = getApp();
-import methods from '../../utils/methods.js';
-import watchshake from '../../utils/watchshake.js';
-import login from '../../utils/login.js';
+var app = getApp();
+import config from '../../config'
+import login from '../../utils/login.js'
+// pages/square/square.js
 Page({
-  data: {
-    houBaoStyle: 1,
-    userInfo: [],
-    shuoming: '小伙伴们摇摇超过武力值领赏金',
-    powerset:'60',
-    ispublic: 0,
-    Money: '',
-    zhifu: '',
-    balance: '0.0',
-    Number: '',
-    fuwufee: '0.0',
-    moving: false,
-    power:0,
-    rate:2,
-    //balanceInfo: {},
-    accountBalance:'',
-    advancedSetting: false,
-    shareWords:'新年快乐大吉大利',
-    items: [
-      { name: '0', value: '均分' },
-      { name: '1', value: '随机', checked: 'true' },
-      { name: '2', value: '后到多得' },
-    ],
-    moneyType:'1'
-  },
+
   /**
-     * 生命周期函数--监听页面显示
-     */
-  onShow: function () {
-    console.log("onShow");
-    var that=this;
-    that.setData({
-      moving:true
+   * 页面的初始数据
+   */
+  data: {
+     receivedHongbao: {},//接受的红包信息
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    //this.onRefresh();  
+    console.log('红包广场界面');
+    that.refresh();
+  },
+  onRefresh:function(){
+    my.getAuthCode({
+      scopes: 'auth_base',
+      success: function (result) {
+       console.log(JSON.stringify(result))
+        //检查登录状态
+       login.checkSession({
+          success: function (userInfo) {
+            console.log('红包广场界面');
+            console.log(userInfo);
+            that.refresh();
+          }
+        });
+      },
+      fail:function(result){
+        console.log(JSON.stringify(result))
+      }
     });
-    that.startMove();
+  },
+
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-    var that = this;
-    that.setData({
-      moving: false
-    });
-    watchshake.stopMove();
-    
+  
   },
-  //事件处理函数
-  onLoad: function () {
-    var that=this;
-    //检查登录状态
-    login.checkSession({
-      success: function (userInfo) {
-        console.log('发送摇摇包界面');
-        watchshake.setdefalutss(login.getInitData().defalutss);
-        app.getBalance();
-        that.refresh();
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+  /**
+     * 页面相关事件处理函数--监听用户下拉动作
+     */
+  onPullDownRefresh: function () {
+    console.log("onPullDownRefresh")
+    this.refresh()
+    my.stopPullDownRefresh()
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log("onReachBottom")
+    my.showLoading({
+      content: '加载中...',
+
+    });
+    setTimeout(() => {
+      my.hideLoading();
+    }, 1000);
+    this.getReceivedHongbao();
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  },
+  getReceivedHongbao: function () {
+    var that = this;
+    console.log(that.data.receivedHongbao.page)
+    my.httpRequest({
+      url: config.publicHongbaoUrl,
+      data: {
+        page: that.data.receivedHongbao.page + 1
+      },
+      success: function (res) {
+        console.log(res)
+        if (res.data.data && res.data.data.list.length > 0) {
+
+          that.data.receivedHongbao.page = that.data.receivedHongbao.page + 1
+          if (that.data.receivedHongbao.page == 1) {
+            //res.data.data.page = that.data.sendedHongbao.page + 1
+            that.setData({
+              receivedHongbao: res.data.data
+            })
+          } else {
+            var list = that.data.receivedHongbao.list
+            console.log(that.data.receivedHongbao)
+            that.data.receivedHongbao.list = list.concat(res.data.data.list)
+
+            that.setData({
+              receivedHongbao: that.data.receivedHongbao
+            })
+          }
+        }
+
       }
-    });
-  },
-  refresh:function(){
-    console.log("刷新")
-    console.log(app.globalData);
-    var that = this;
-    var tipArray = methods.getModel(0).tips;
-    var num = Math.round(Math.random() * (tipArray.length - 1) + 0);
-     that.setData({
-      tips: tipArray[num],
-      userInfo: login.getSession().userInfo,
-      balanceInfo: app.globalData.balanceInfo,
-    })
-    
-  },
-  startMove: function () {
-    var that=this;
-    console.log("startMove")
-    watchshake.startMove(function(sum){
-        console.log("sum");
-        console.log(sum);
-        that.setData({
-          power: sum.toFixed(2),
-          powerset:sum.toFixed(2)
-      });
-    });
-  },
-  // 获取页面填入的值
-  powerInput: function (e) {
-    var that = this;
-    console.log(e.detail.value)
-    that.setData({
-      powerset: e.detail.value,
-    })
-  },
-  MoneyInput: function (e) {
-    var that = this;
-    console.log(e.detail.value)
-    that.setData({
-      Money: e.detail.value,
-    })
-    console.log(app.globalData.balanceInfo)
-    console.log("acountbalance is " + app.globalData.balanceInfo.allMoney)
-    console.log("now money is "+that.data.Money)
-    var sendfee = methods.getSendFee(0, that.data.Money)
-    console.log(sendfee)
-    var chargefee = methods.getChargeFee(0, (that.data.Money - app.globalData.balanceInfo.allMoney))
-    if(chargefee<0){
-      chargefee=0
-    }
-    console.log("chargefee is "+chargefee)
-    var fee = (sendfee + chargefee).toFixed(2);
-    var balance = that.data.Money * 1 + fee * 1
-    if (balance > app.globalData.balanceInfo.allMoney) {
-      balance = app.globalData.balanceInfo.allMoney
-    }
-    that.setData({
-      fuwufee: fee,
-      balance: balance,
-      zhifu: that.data.Money + fee - balance
-    })
-    console.log("now fuwufee is"+that.data.fuwufee)
-  },
-  NumberInput: function (e) {
-    var that = this;
-    console.log(e.detail.value)
-    that.setData({
-      Number: e.detail.value,
-    })
-  },
+      ,
+      fail: function (res) {
 
-  toShare:function(e) {
+      }
+    })
+  },
+  refresh: function () {
     var that = this;
-    //console.log(e.detail.value)
-    if(this.data.Money==''){
-
-      my.alert({
-        title: '提示',
-        content: '请先输入金额',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
+    console.log("that.data.receivedHongbao.page")
+    that.data.receivedHongbao.page = 0
+    console.log(that.data.receivedHongbao.page)
+    this.getReceivedHongbao()
+  },
+  toShare: function (obj) {
+    var that = this
+    //var filePath = obj.currentTarget.id
+    console.log(obj)
+    console.log(obj.currentTarget.dataset.hongbaoid)
+    my.navigateTo({
+      url: '/pages/index/Share/Share?id=' + obj.currentTarget.dataset.hongbaoid,
+    })
+  },
+  openOther:function(obj){
+    if (obj.currentTarget.dataset.appid){
+      my.navigateToMiniProgram({
+        appId: obj.currentTarget.dataset.appid,
+        success(res) {
+          // 打开成功
         }
       })
     }
-
-    else if(this.data.Number==''){
-      my.alert({
-        title: '提示',
-        content: '请输入红包个数',
-        success: function (res) {
-          if (res.confirm) {
-            console.log('用户点击确定')
-          } else if (res.cancel) {
-            console.log('用户点击取消')
-          }
-        }
-      })
-    }
-    else {
-      //停止监听武力值
-     // my.stopAccelerometer({})
-     //watchshake.stopMove();
-
-      methods.hongbaoCreate(1, '', that.data.powerset, that.data.Money, that.data.Number, that.data.fuwufee, '', '', that.data.moneyType, that.data.ispublic)
-     
-      console.log(e.detail.value);
-    }
   },
-  clicksetting: function (e) {
-    var that = this
-    console.log("switch is " + e.detail.value)
-    if (e.detail.value == true) {
-      that.setData({
-        advancedSetting: true
-      })
-    }
-    else {
-      that.setData({
-        advancedSetting: false
-      })
-    }
-
-  },
-  clickpublic: function (e) {
-    var that = this
-    console.log("switch is " + e.detail.value)
-    that.data.ispublic = e.detail.value?1:0;
-  },
-  shareInput:function(e){
-    //var that = this;
-    // that.setData({
-    //   shareWords: e.detail.value,
-    // })
-    app.globalData.shareWords=e.detail.value
-
-  },
-  radioChange:function(e){
-    var that=this;
-    console.log('radio发生change事件，携带value值为：', e.detail.value)
-    that.setData({
-      moneyType: e.detail.value
+  tomine:function(){
+    my.navigateTo({
+      url: '/pages/mine/mine',
     })
   },
-  clickexample:function(){
+  toyaoyao:function(){
     my.navigateTo({
-      url: '/pages/index/Share/Share?id=344',
-    })
-  },
-  clickhelp:function(){
-    my.navigateTo({
-      url: '../mine/help/help',
+      url: '/pages/yaoyao/yaoyao',
     })
   }
-
 })

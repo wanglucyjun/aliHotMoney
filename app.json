@@ -3,9 +3,7 @@
     "pages/index/index",
     "pages/index/Share/ShareHotMoney",
     "pages/index/Share/Share",
-    "pages/square/square",
-    "pages/kouling/kouling",
-    "pages/qingting/qingting",
+    "pages/yaoyao/yaoyao",
     "pages/mine/mine",
     "pages/mine/draw/draw",
     "pages/mine/help/help",
@@ -19,28 +17,6 @@
   },
   "tabBar": {
     "backgroundColor": "#fff",
-    "selectedColor": "#D95940",
-   
-    "items": [
-      {
-        "icon": "pages/image/9.png",
-        "activeIcon": "pages/image/10.png",
-        "pagePath": "pages/square/square",
-        "name": "广场"
-      },
-      {
-        "icon": "pages/image/1.png",
-        "activeIcon": "pages/image/2.png",
-        "pagePath": "pages/index/index",
-        "name": "摇摇包"
-      },
-      
-      {
-        "icon": "pages/image/5.png",
-        "activeIcon": "pages/image/6.png",
-        "pagePath": "pages/mine/mine",
-        "name": "我的"
-      }
-    ]
+    "selectedColor": "#D95940"
   }
 }

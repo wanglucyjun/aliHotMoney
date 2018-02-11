@@ -28,6 +28,11 @@ Page({
         console.log('发送摇摇包界面');
         console.log(userInfo);
         that.refresh();
+      },
+      fail:function(){
+        my.navigateBack({
+          delta: 1
+        });
       }
     });
   },
