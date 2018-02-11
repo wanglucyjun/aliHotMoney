@@ -33,8 +33,8 @@
               <text class='try'a:if="{{moving===true}}">刚才最大的武力值是{{power}}</text>
             </view> -->
             <view class='setHotMoney_detail'>
-              <view class='setHotMoney_name fl' >购买券数</view>
-              <input type='number' placeholder='填写数量' class='hotInput fr'
+              <view class='setHotMoney_name fl' >购买券值</view>
+              <input type='digit' placeholder='填写券值' class='hotInput fr'
                      onInput='MoneyInput'></input>
             </view>
             <view class='setHotMoney_detail'>
@@ -46,7 +46,7 @@
                <switch onChange='clickpublic'></switch>投放广场
                <switch onChange='clicksetting'  class='setting' ></switch>高级设置
               </view>
-              <view class="server">投放广场会得摇摇豆，购买一券需支付￥0.1元</view>
+              <view class="server">投放广场会得摇摇豆</view>
               <view class="server">需支付￥{{fuwufee}}服务费,优先使用领取的{{balance}}券</view>
            <view
             class='VoiceBtn' onTap='toShare'>生成摇摇武力券

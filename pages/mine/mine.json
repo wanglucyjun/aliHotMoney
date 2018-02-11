@@ -1,8 +1,8 @@
 {
-         "pullRefresh": true,
+      "pullRefresh": true,
       "backgroundTextStyle": "light",
       "titleBarColor": "#D95940",
-      "defaultTitle": "摇摇包—我的",
+      "defaultTitle": "摇摇券—我的",
       "navigationBarTextStyle": "#fff"
     
 }

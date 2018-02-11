@@ -46,7 +46,7 @@ Page({
     //检查登录状态
     login.checkSession({
       success: function (userInfo) {
-        console.log('领取红包界面');
+        console.log('领券界面');
         watchshake.setdefalutss(login.getInitData().defalutss);
         //app.getBalance();
         that.refresh();
@@ -212,7 +212,8 @@ Page({
         userHongbao: that.data.userHongbao
       })
       if (sum > that.data.hongbaoDetail.content.question) {
-        that.getHongbao()
+        watchshake.stopMove();
+        that.getHongbao();
 
       }
     })
@@ -221,9 +222,9 @@ Page({
    
     var that=this
     
-    var url='../../index/index'
+    var url='../../yaoyao/yaoyao'
     if (that.data.hongbaoDetail.type == 1){
-      url ='../../index/index'
+      url ='../../yaoyao/yaoyao'
     }
     if (that.data.hongbaoDetail.type == 2) {
       url = '../../kouling/kouling'
@@ -232,7 +233,7 @@ Page({
       url = '../../qingting/qingting'
     }
     console.log(url)
-    my.switchTab({
+    my.navigateTo({
       url: url,
       fail:function(msg){
         console.log(msg)
@@ -246,7 +247,7 @@ Page({
     
   },
   gotoMine:function(){
-    my.switchTab({
+    my.navigateTo({
       url: '../../mine/mine',
     })
   }

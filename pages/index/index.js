@@ -107,25 +107,24 @@ Page({
       },
       success: function (res) {
         console.log(res)
-        if (res.data.data && res.data.data.list.length > 0) {
+        if (res.data.code <100 && res.data.data.list.length > 0) {
 
-          that.data.receivedHongbao.page = that.data.receivedHongbao.page + 1
-          if (that.data.receivedHongbao.page == 1) {
-            //res.data.data.page = that.data.sendedHongbao.page + 1
-            that.setData({
-              receivedHongbao: res.data.data
-            })
-          } else {
-            var list = that.data.receivedHongbao.list
-            console.log(that.data.receivedHongbao)
-            that.data.receivedHongbao.list = list.concat(res.data.data.list)
+            that.data.receivedHongbao.page = that.data.receivedHongbao.page + 1
+            if (that.data.receivedHongbao.page == 1) {
+              //res.data.data.page = that.data.sendedHongbao.page + 1
+              that.setData({
+                receivedHongbao: res.data.data
+              })
+            } else {
+              var list = that.data.receivedHongbao.list
+              console.log(that.data.receivedHongbao)
+              that.data.receivedHongbao.list = list.concat(res.data.data.list)
 
-            that.setData({
-              receivedHongbao: that.data.receivedHongbao
-            })
-          }
+              that.setData({
+                receivedHongbao: that.data.receivedHongbao
+              })
+            }
         }
-
       }
       ,
       fail: function (res) {

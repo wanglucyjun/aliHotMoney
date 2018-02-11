@@ -5,12 +5,12 @@
           <view class='Money_name'>今日人次</view>
           <view class='money_num'>{{receivedHongbao.todayPeople}}</view>
     </view>
-    <!-- <view class='Money_Number fl'>
-          <view class='Money_name'>今日个数</view>
-          <view class='money_num'>{{receivedHongbao.todayActive}}</view>
-    </view> -->
     <view class='Money_Number fl'>
-          <view class='Money_name'>今日券数</view>
+          <view class='Money_name'>今日领取数</view>
+          <view class='money_num'>{{receivedHongbao.todayActive}}</view>
+    </view>
+    <view class='Money_Number fl'>
+          <view class='Money_name'>今日总券值</view>
           <view class='money_num'>{{receivedHongbao.todayMoney}}</view>
     </view>
   </view>
@@ -38,7 +38,7 @@
                   </view>
                   <view >
                     <view class='square-item-title'>{{item.title}}</view>
-                    <view class='square-item-detail' >{{item.money}}个{{item.num}}次，可领剩{{item.left_num}}次</view>
+                    <view class='square-item-detail' >{{item.money}}券值{{item.num}}次，可领剩{{item.left_num}}次</view>
                   </view>
 
               </view>

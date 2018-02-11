@@ -82,7 +82,6 @@ Page({
       userInfo: login.getSession().userInfo,
       balanceInfo: app.globalData.balanceInfo,
     })
-    
   },
   startMove: function () {
     var that=this;
@@ -113,15 +112,15 @@ Page({
     console.log(app.globalData.balanceInfo)
     console.log("acountbalance is " + app.globalData.balanceInfo.allMoney)
     console.log("now money is "+that.data.Money)
-    var sendfee = methods.getSendFee(0, that.data.Money*0.1)
+    var sendfee = methods.getSendFee(0, that.data.Money)
     console.log(sendfee)
-    var chargefee = methods.getChargeFee(0, (that.data.Money - app.globalData.balanceInfo.allMoney)*0.1)
+    var chargefee = methods.getChargeFee(0, (that.data.Money - app.globalData.balanceInfo.allMoney))
     if(chargefee<0){
       chargefee=0
     }
     console.log("chargefee is "+chargefee)
     var fee = (sendfee + chargefee).toFixed(2);
-    var balance = that.data.Money
+    var balance = that.data.Money * 1 + fee * 1
     if (balance > app.globalData.balanceInfo.allMoney) {
       balance = app.globalData.balanceInfo.allMoney
     }
@@ -147,7 +146,7 @@ Page({
 
       my.alert({
         title: '提示',
-        content: '请先输入购买的券数',
+        content: '请先输入购买的券值',
         success: function (res) {
           if (res.confirm) {
             console.log('用户点击确定')

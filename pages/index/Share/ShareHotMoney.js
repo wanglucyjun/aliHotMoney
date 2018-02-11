@@ -11,7 +11,7 @@ Page({
   data: {
     hongbaoID: '123',
     hongbaoDetail:{},
-    shareWords:'包包乐翻天'
+    shareWords:'摇摇乐翻天'
   },
 
   /**

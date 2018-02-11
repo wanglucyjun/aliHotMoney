@@ -15,7 +15,7 @@
       <view class="share_box">
         <view class='kouling'>     
             发送了一个    
-            <text  a:if="{{hongbaoDetail.type==1}}">摇摇包</text>
+            <text  a:if="{{hongbaoDetail.type==1}}">摇摇券</text>
             <text  a:if="{{hongbaoDetail.type==2}}">口令包</text>
             <text  a:if="{{hongbaoDetail.type==3}}">倾听包</text>
             <text  a:if="{{hongbaoDetail.type==4}}">猜谜包</text>
