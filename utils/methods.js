@@ -204,6 +204,40 @@ function getRandom(){
 function makeSign(){
 
 }
+//接口返回code码处理
+function receiveCode(res){
+  console.log(JSON.stringify("code"+res.data.code))
+  if(res.data.code==101){
+    my.showToast({
+      content: res.data.message, // 文字内容
+      success: (res) => {
+        
+      },
+    });
+  }
+  if(res.data.code==102){
+    my.showToast({
+      content: res.data.message, // 文字内容
+      success: (res) => {
+        
+      },
+    });
+  }
+  if(res.data.code==103){
+    login.login
+  }
+
+}
+
+//服务器返回500错误提示
+function serverError(res){
+    my.showToast({
+            content: '系统繁忙，请稍后重试', // 文字内容
+            success: (res) => {
+              
+            },
+          });
+}
 //创建红包接口请求
 function hongbaoCreate(type,question,power,Money,num,fee,filePath,voiceLength,moneyType,ispublic){
   console.log('create')
@@ -277,7 +311,8 @@ success:function(res) {
   //getAccountInfo: getAccountInfo,
   getSound: getSound,
   getRandom: getRandom,
-  getShareWords: getShareWords
-  
+  getShareWords: getShareWords,
+  receiveCode:receiveCode,
+  serverError:serverError
 }
 
