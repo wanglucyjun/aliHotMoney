@@ -214,6 +214,7 @@ function receiveCode(res){
         
       },
     });
+    return false
   }
   if(res.data.code==102){
     my.showToast({
@@ -222,11 +223,13 @@ function receiveCode(res){
         
       },
     });
+    return false
   }
   if(res.data.code==103){
-    login.login
+    login.login()
+    return false
   }
-
+return true
 }
 
 //服务器返回500错误提示

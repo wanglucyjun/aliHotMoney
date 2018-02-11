@@ -123,7 +123,10 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        methods.receiveCode(res)
+        var result=methods.receiveCode(res)
+        if(result=false){
+          return 
+        }
         if (res.data.data && res.data.data.list.length >= 0) {
           that.data.drawlist.page = that.data.drawlist.page + 1
           if (that.data.drawlist.page == 1) {
