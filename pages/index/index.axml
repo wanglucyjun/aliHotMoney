@@ -38,12 +38,12 @@
                   </view>
                   <view >
                     <view class='square-item-title'>{{item.title}}</view>
-                    <view class='square-item-detail' >{{item.money}}券值{{item.num}}次，可领剩{{item.left_num}}次</view>
+                    <view class='square-item-detail' >{{item.money}}券值，可领{{item.num}}次剩{{item.left_num}}次</view>
                   </view>
 
               </view>
               <view class='square-item-col3-bottom'>
-                  <text class='square-item-type fl'  a:if="{{item.type==1}}">摇摇包</text>
+                  <text class='square-item-type fl'  a:if="{{item.type==1}}">摇摇健身券</text>
                   <text class='square-item-type fl'  a:if="{{item.type==2}}">口令包</text>
                   <text class='square-item-type fl'  a:if="{{item.type==3}}">倾听包</text>
               </view>
