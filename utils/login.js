@@ -135,10 +135,7 @@ var login = function login(options) {
               userInfo.token = data.data.token
               my.httpRequest({
                 url: config.updateUrl,
-               // data: userInfo,
-               data:{
-                nickName:userInfo.nickName
-               },
+                data: userInfo,
                 success: function (res) {
                   console.log('成功');
                   console.log(JSON.stringify(res))

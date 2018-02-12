@@ -61,8 +61,11 @@ Page({
       success: function (userInfo) {
         console.log('发送摇摇券界面');
         watchshake.setdefalutss(login.getInitData().defalutss);
-        app.getBalance();
-        that.refresh();
+        methods.getBalance(
+        { 
+          success:function(balanceInfo){
+          that.refresh();}
+        });
       },
       fail:function(){
         my.navigateBack({

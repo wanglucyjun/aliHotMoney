@@ -2,6 +2,8 @@ const uploadUrl = require('../config').uploadUrl
 const hongbaoCreateUrl = require('../config').hongbaoCreateUrl
 const userinfoUrl = require('../config').userinfoUrl
 var login = require('./login');
+var utils = require('./util');
+const config = require('../config')
 const app = getApp()
 
 
@@ -286,13 +288,7 @@ success:function(res) {
         my.tradePay({
             orderStr: data.package,  // 即上述服务端已经加签的orderSr参数
               success: (res) => {
-                console.log(JSON.stringify(res.resultCode))
-                if(res.resultCode==9000){
                 my.navigateTo({url: '/pages/index/Share/Share?id=' + data.hotid,});
-              }
-              else{
-
-              }
             },
             'fail': function (res) {
                console.log(res);
@@ -306,7 +302,45 @@ success:function(res) {
     }
 }
 })
-  }
+}
+    var noop = function noop() { };
+    var defaultOptions = {
+      method: 'GET',
+      success: noop,
+      fail: noop
+    };
+  //获取提现初始值
+ var getBalance=function (options) {
+
+    options = utils.extend({}, defaultOptions, options);
+    my.httpRequest({
+      url: config.hongbaoGetBalanceUrl,
+      data: {
+        token: login.getSession().session.token
+      },
+      success: function (res) {
+        //console.log(res.data)
+          if(receiveCode(res)){
+              var redata = res.data.data;
+              redata.needQCode=1;
+              redata.needAccount=1;
+              if (redata.qCode!=""){
+                redata.needQCode = 0;
+              }
+              if (redata.account != "") {
+                redata.needAccount = 0;
+              }
+              app.globalData.balanceInfo = redata;
+              options.success(redata);
+          }
+    },
+      fail: function (res) {
+        console.log(res.data)
+        options.fail(res);
+
+      },
+    })
+  };
 
  module.exports={
   getModel:getModel,
@@ -322,6 +356,7 @@ success:function(res) {
   getRandom: getRandom,
   getShareWords: getShareWords,
   receiveCode:receiveCode,
-  serverError:serverError
+  serverError:serverError,
+  getBalance:getBalance
 }
 

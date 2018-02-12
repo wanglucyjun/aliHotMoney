@@ -26,9 +26,8 @@ Page({
     //检查登录状态
     login.checkSession({
       success: function (userInfo) {
-        login.getInitData()
+        console.log('发送摇摇包界面');
         console.log(JSON.stringify(userInfo));
-        //app.getBalance();
         that.refresh();
       },
       fail:function(){
@@ -37,11 +36,6 @@ Page({
         });
       }
     });
-    that.setData({
-      userHongbao: app.globalData.balanceInfo
-    })
-      console.log("userHongbao is "+JSON.stringify(that.data.userHongbao))
-      that.refresh()
   },
   // tab 切换函数
   changeTab: function (e) {
@@ -63,6 +57,7 @@ Page({
   onShow: function () {
   
   },
+
   /**
    * 生命周期函数--监听页面隐藏
    */
@@ -230,20 +225,26 @@ Page({
   },
   refresh:function(){
     var that = this;
-    app.getBalance()
-    that.setData({
-      userInfo: login.getSession().userInfo,
-      userHongbao: app.globalData.balanceInfo,
-    })
+    methods.getBalance(
+      { 
+        success:function(balanceInfo){
+         console.log(balanceInfo)
+          that.setData({
+            userInfo: login.getSession().userInfo,
+            userHongbao: balanceInfo,
+          })
+          
+         }
+        });
     that.data.sendedHongbao.page=0
     console.log("that.data.receivedHongbao.page")
-    that.data.receivedHongbao.page=0
-    that.data.drawlist.page = 0
-    
-    console.log(that.data.receivedHongbao.page)
-    this.getReceivedHongbao()
-    this.getSendedHongbao()
-    this.getDrawlist()
+          that.data.receivedHongbao.page=0
+          that.data.drawlist.page = 0
+          
+          console.log(that.data.receivedHongbao.page)
+          this.getReceivedHongbao()
+          this.getSendedHongbao()
+          this.getDrawlist()
   },
   toShare:function(obj){
     var that = this

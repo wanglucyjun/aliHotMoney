@@ -40,14 +40,18 @@ Page({
     var that = this;
     // console.log("this.data.drawdata");
     // console.log(this.data.drawdata);
-    app.getBalance()
-    that.setData({
-      userInfo: login.getSession().userInfo,
-      userHongbao: app.globalData.balanceInfo,
-      withdrawFee: app.globalData.withdrawFee,
-      drawdata: that.data.drawdata,
-      money: ''
-    })
+    methods.getBalance(
+        { 
+          success:function(balanceInfo){
+            that.setData({
+              userInfo: login.getSession().userInfo,
+              userHongbao: app.globalData.balanceInfo,
+              withdrawFee: app.globalData.withdrawFee,
+              drawdata: that.data.drawdata,
+              money: ''
+            })
+          }
+        });
     console.log("this.data.drawdata");
   },
   /**

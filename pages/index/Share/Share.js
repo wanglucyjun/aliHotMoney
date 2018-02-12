@@ -48,7 +48,7 @@ Page({
       success: function (userInfo) {
         console.log('领券界面');
         watchshake.setdefalutss(login.getInitData().defalutss);
-        //app.getBalance();
+       
         that.refresh();
       },
       fail:function(){
@@ -108,7 +108,7 @@ Page({
       success: function (userInfo) {
         console.log('领券界面');
         watchshake.setdefalutss(login.getInitData().defalutss);
-        //app.getBalance();
+       
         that.refresh();
       },
       fail:function(){
@@ -131,14 +131,23 @@ Page({
         console.log(JSON.stringify(res))
        
         if (methods.receiveCode(res)) {
-          app.getBalance()
+          
           that.setData({
-            userInfo: login.getSession().userInfo,
-            hongbaoDetail: res.data.data,
-            yaoyaodou: app.globalData.balanceInfo.yaoyaodou
+              userInfo: login.getSession().userInfo,
+              hongbaoDetail: res.data.data
           })
           if (that.data.hongbaoDetail.type == 1 && that.data.hongbaoDetail.hadSend == 0){
-            that.startMove()
+              that.startMove()
+            }
+          if(that.data.hongbaoDetail.is_public==1){
+            methods.getBalance(
+            { 
+              success:function(balanceInfo){
+              that.setData({
+                yaoyaodou: app.globalData.balanceInfo.yaoyaodou
+                })
+              }
+            });
           }
         }
       }

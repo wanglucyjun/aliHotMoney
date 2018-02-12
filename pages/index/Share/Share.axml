@@ -25,7 +25,7 @@
           <view class='answer2ok' a:if="{{hongbaoDetail.state==2}}">活动已完毕</view>
         </view>
         
-        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">领广场券需消耗摇摇豆，摇摇豆余额：{{yaoyaodou}}</view>
+        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">摇摇豆余额{{yaoyaodou}},领券会消耗豆，发布券到广场会得豆</view>
       </view>
 
       <view class='share_box marginTop'>
