@@ -21,7 +21,8 @@
           <!--摇摇包  -->
             <view class='setHotMoney_detail' >
               <view class='setHotMoney_name fl' >设置武力</view>
-              <input type='digit' onInput="powerInput" placeholder="{{power?power:'摇一摇设置值'}}" class='hotInput fr'      bindinput='powerInput' value="{{power?power:''}}"></input>
+              <input type='digit' onInput="powerInput" placeholder="{{power?power:'摇一摇设置值'}}" 
+              class='hotInput fr'  ></input>
             </view>
 
             <view class='shuoming'>
