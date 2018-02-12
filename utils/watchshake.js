@@ -12,8 +12,9 @@ var watchShake= function() {
         data.isShake=false;
         if(data.lasttime<10){
             data.lasttime=new Date().getTime()
-            console.log("the lasttime is "+data.lasttime)
+            
         }
+
         my.watchShake({
         success: function() {
             data.isShake=true;
@@ -64,7 +65,11 @@ var startMove=function(func) {
     data.lasttime=0;
     data.lengthss=2;
     data.lengtharr=[1,2,3,4,5,6,7,8,9,10];
+<<<<<<< HEAD
 
+=======
+    //emitter.setMaxListeners();
+>>>>>>> refs/remotes/origin/master
     console.log(JSON.stringify(data));
     setTimeout(function(){watchShake();},0)
 

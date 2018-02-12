@@ -30,6 +30,7 @@ App({
   onLaunch: function () {
     var that = this
     console.log("App OnLaunch")
+    login.clearSession();
     // wx.request({
     //   url:config.initUrl,
     //   success: function (res) {

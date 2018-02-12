@@ -101,9 +101,12 @@
  font-weight:bold;
 }
 .hotInput{
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   border-bottom:1px solid #ccc;
-  margin-top:1rpx;
-  width:65%;
+  margin-top:10rpx;
+  width:70%;
 }
 .shuoming{
   height:50rpx;

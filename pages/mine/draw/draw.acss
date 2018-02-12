@@ -104,3 +104,7 @@ height: 50rpx;
   border-radius:45rpx;
 
 }
+.hotInput{
+  border: 0;
+  width:100%;
+}
