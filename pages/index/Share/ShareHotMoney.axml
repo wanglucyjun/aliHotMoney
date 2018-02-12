@@ -1,8 +1,9 @@
 <view class='container'>
   <view class='con'>
+    <image class='bg-code' src='../../image/1.png'></image>
     <view class='bg_pic'>
     <image class='bg' src='../../image/bg.png'></image>
-  <image class='bg-code' src='../../image/code.jpg'></image>
+    
 
     <view class='bg_picbody'>
       <view class='share_box'>
@@ -14,8 +15,8 @@
       </view>
       <view class="share_box">
         <view class='kouling'>     
-            发送了一个    
-            <text  a:if="{{hongbaoDetail.type==1}}">摇摇券</text>
+            发布了一个    
+            <text  a:if="{{hongbaoDetail.type==1}}">摇摇健身券</text>
             <text  a:if="{{hongbaoDetail.type==2}}">口令包</text>
             <text  a:if="{{hongbaoDetail.type==3}}">倾听包</text>
             <text  a:if="{{hongbaoDetail.type==4}}">猜谜包</text>

@@ -101,15 +101,20 @@ Page({
    */
   onPullDownRefresh: function () {
     console.log("onPullDownRefresh");
-    this.refresh()
     my.stopPullDownRefresh()
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
+    var that=this;
+     //检查登录状态
+    login.checkSession({
+      success: function (userInfo) {
+        console.log('领券界面');
+        watchshake.setdefalutss(login.getInitData().defalutss);
+        //app.getBalance();
+        that.refresh();
+      },
+      fail:function(){
+       
+      }
+    });
   },
   refresh:function(){
     console.log('refresh')
@@ -125,7 +130,7 @@ Page({
         console.log('refreshsuccess')
         console.log(JSON.stringify(res))
        
-        if (res.data.code=='0'){
+        if (methods.receiveCode(res)) {
           app.getBalance()
           that.setData({
             userInfo: login.getSession().userInfo,
@@ -149,8 +154,6 @@ Page({
     console.log("getHongbao");
     var that = this
     if (that.data.hongbaoDetail.state == 1 && that.data.hongbaoDetail.hadSend == 0) {
-      login.checkSession({
-      success: function () {
         that.data.userHongbao.token = login.getSession().session.token
         //此处领红包
         my.httpRequest({
@@ -158,7 +161,7 @@ Page({
           data: that.data.userHongbao,
           success: function (res) {
             console.log(res)
-            if(res.data.code==0){
+            if (methods.receiveCode(res)) {
               my.showToast({
                 title: '提示',
                 content: '您领取了'+res.data.data.money,
@@ -178,12 +181,6 @@ Page({
                    
                   }
                });
-            }else{
-              my.showToast({
-                title: '提示',
-                content: res.data.message,
-                duration: 1000,
-              })
             }
             //显示领取多少红包
             that.refresh()
@@ -193,9 +190,6 @@ Page({
             
           }
         })
-      }
-    })
-    
     }
   },
   //开始摇手机

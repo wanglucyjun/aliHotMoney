@@ -27,7 +27,7 @@ Page({
     login.checkSession({
       success: function (userInfo) {
         console.log('发送摇摇包界面');
-        console.log(userInfo);
+        console.log(JSON.stringify(userInfo));
         that.refresh();
       },
       fail:function(){
@@ -123,18 +123,15 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        var result=methods.receiveCode(res)
-        if(result=false){
-          return 
-        }
-        if (res.data.data && res.data.data.list.length >= 0) {
-          that.data.drawlist.page = that.data.drawlist.page + 1
-          if (that.data.drawlist.page == 1) {
+        if (methods.receiveCode(res)) {
+
+          if (that.data.drawlist.page == 0) {
             //res.data.data.page = that.data.sendedHongbao.page + 1
             that.setData({
               drawlist: res.data.data
             })
-          } else {
+          }else if(res.data.data.list.length>0){
+            that.data.drawlist.page = that.data.drawlist.page+1
             var list = that.data.drawlist.list
             console.log(that.data.drawlist)
             that.data.drawlist.list = list.concat(res.data.data.list)
@@ -148,7 +145,7 @@ Page({
       }
       ,
       fail: function (res) {
-        methods.serverError
+
       }
     })
   },
@@ -163,16 +160,16 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        methods.receiveCode(res)
-        if (res.data.data && res.data.data.list.length >=0) {
+        if (methods.receiveCode(res)) {
 
-          that.data.receivedHongbao.page = that.data.receivedHongbao.page + 1
-          if (that.data.receivedHongbao.page == 1) {
+          //that.data.receivedHongbao.page = that.data.receivedHongbao.page + 1
+          if (that.data.receivedHongbao.page == 0) {
             //res.data.data.page = that.data.sendedHongbao.page + 1
             that.setData({
               receivedHongbao: res.data.data
             })
-          } else {
+          }else if(res.data.data.list.length>0){
+            that.data.receivedHongbao.page = that.data.receivedHongbao.page+1
             var list = that.data.receivedHongbao.list
             console.log(that.data.receivedHongbao)
             that.data.receivedHongbao.list = list.concat(res.data.data.list)
@@ -186,7 +183,6 @@ Page({
       }
       ,
       fail: function (res) {
-        methods.serverError(res)
 
       }
     })
@@ -201,16 +197,16 @@ Page({
       },
       success: function (res) {
         console.log(JSON.stringify(res))
-        methods.receiveCode(res)
-        if (res.data.data && res.data.data.list.length>=0){
+        if (methods.receiveCode(res)){
           
-          that.data.sendedHongbao.page = that.data.sendedHongbao.page+1
-          if (that.data.sendedHongbao.page==1){
+          
+          if (that.data.sendedHongbao.page==0){
             //res.data.data.page = that.data.sendedHongbao.page + 1
             that.setData({
               sendedHongbao: res.data.data
             })
-          }else{
+          }else if(res.data.data.list.length>0){
+            that.data.sendedHongbao.page = that.data.sendedHongbao.page+1
             var list= that.data.sendedHongbao.list
             console.log(that.data.sendedHongbao)
             that.data.sendedHongbao.list=list.concat(res.data.data.list)
@@ -223,7 +219,7 @@ Page({
       }
       ,
       fail: function (res) {
-          methods.serverError(res)
+
       }
     })
   },

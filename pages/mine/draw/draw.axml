@@ -10,7 +10,7 @@
   </view>
   <view class='draw_text'>兑换</view>
   <view class='setHotMoney_detail' >
-    <view class='setHotMoney_name fl' >值</view>
+    <view class='setHotMoney_name fl'></view>
     <input type='digit'  class='hotInput'
                     onBlur='MoneyInput'a:if="{{userHongbao.dayCanDraw==1}}" value='{{money}}'></input>
     <view class='setHotMoney_name' a:if="{{userHongbao.dayCanDraw==0}}" ><text class='draw_text4'>今天不可以兑换</text></view>

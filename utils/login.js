@@ -33,6 +33,11 @@ var getMyLoginResult = function getLoginCode(callback) {
           var ui={};
           ui.avatarUrl=userInfo.avatar;
           ui.nickName=userInfo.nickName;
+          ui.gender='';
+          ui.city='';
+          ui.province='';
+          ui.country='';
+          ui.language='zh_CN';
 
           callback(null, {
             code: loginResult.authCode,
@@ -78,7 +83,7 @@ var defaultOptions = {
 var login = function login(options) {
   console.log('login')
   options = utils.extend({}, defaultOptions, options);
-
+  Session.clear();
   var doLogin = () => getMyLoginResult(function (wxLoginError, wxLoginResult) {
     if (wxLoginError) {
       options.fail(wxLoginError);
@@ -116,10 +121,14 @@ var login = function login(options) {
                 url: config.updateUrl,
                 data: userInfo,
                 success: function (res) {
+                  console.log('成功');
+                  console.log(JSON.stringify(res))
                 },
                 fail: function (res) {
                   //var errorMessage = '登录失败:' + data.msg || '未知错误';
                   //保存失败
+                  console.log('错误');
+                  console.log(JSON.stringify(res))
                 }
               })
             }

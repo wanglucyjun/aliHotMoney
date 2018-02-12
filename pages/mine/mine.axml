@@ -8,8 +8,8 @@
     </view>
     <view class='header_center fl'>
       <view class='header_name'>{{userInfo.nickName}}</view>
-      <view class='header_yue'>我的券数:￥{{userHongbao.allMoney}}</view>
-      <view class='header_yue'>可提:￥{{userHongbao.withdrawableMoney}}</view>
+      <view class='header_yue'>我的券值:{{userHongbao.allMoney}}</view>
+      <view class='header_yue'>可用券值:{{userHongbao.withdrawableMoney}}</view>
     </view>
     <view class='header_right fr'  onTap="getMoney">
         <image src='../image/hot.png' mode='widthFix' class='hotMoney_tu'></image>
@@ -26,16 +26,16 @@
     <view class='nav'>
       <text class="nav_con {{mineRecod==1? 'on':''}}" data-num="1" onTap='changeTab'>我发布的</text>
       <text class="nav_con {{mineRecod==2? 'on':''}}" data-num="2" onTap='changeTab'>我领取的</text>
-      <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" onTap='changeTab'>我提取的</text>
+      <text class="nav_con {{mineRecod==3? 'on':''}}" data-num="3" onTap='changeTab'>我兑换的</text>
     </view>
     <view class='content'>
     <view class='content_bottom'  a:if="{{mineRecod==1}}"  >
         <view class='Money_Number fl'>
-          <view class='Money_name'>券数（个）</view>
+          <view class='Money_name'>券值</view>
           <view class='money_num'>{{sendedHongbao.sendedMoney}}</view>
         </view>
         <view class='Money_Number fl'>
-          <view class='Money_name'>数量（个）</view>
+          <view class='Money_name'>数量</view>
           <view class='money_num'>{{sendedHongbao.sendedNum}}</view>
         </view>
     
@@ -43,11 +43,11 @@
     
     <view class='content_bottom'  a:if="{{mineRecod==2}}" >
         <view class='Money_Number fl'>
-          <view class='Money_name'>券数（个）</view>
+          <view class='Money_name'>券值</view>
           <view class='money_num'>{{receivedHongbao.receivedMoney}}</view>
         </view>
         <view class='Money_Number fl'>
-          <view class='Money_name'>数量（个）</view>
+          <view class='Money_name'>数量</view>
           <view class='money_num'>{{receivedHongbao.receivedNum}}</view>
         </view>
     
@@ -80,7 +80,7 @@
             <view class='sended-list-item-date'>{{item.date}}</view>
           </view>
           <view class='sended-list-item-right fr'>
-            <view class='sended-list-item-money'>{{item.allMoney}}元</view>
+            <view class='sended-list-item-money'>{{item.allMoney}}券</view>
             <text style="align='right'">{{item.allNum-item.leftNum}}/{{item.allNum}}</text>
           </view>
         </view>
@@ -103,7 +103,7 @@
             <text class='received-list-item-text'>  {{item.title}}</text>
           </view>
           <view class='received-list-item-right fr'>
-            <view class='received-list-item-money'>{{item.money}}元</view>
+            <view class='received-list-item-money'>{{item.money}}券</view>
             <view class='received-list-item-date'>{{item.date}}</view>
           </view>
         </view>

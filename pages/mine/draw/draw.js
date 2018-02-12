@@ -76,19 +76,19 @@ Page({
     value = value*1;
     if (!userHongbao.dayCanDraw){
       my.showToast({
-        content: "今日不可提现",
+        content: "今日不可兑换",
       })
       return false;
     }
     if (value > userHongbao.withdrawableMoney || value > userHongbao.oneTimesLimit) {
       my.showToast({
-        content: "提现额太大",
+        content: "兑换额太大",
       })
       return false;
     }
     if (value < userHongbao.minWithdrawMoney) {
       my.showToast({
-        content: "提现额太小",
+        content: "兑换额太小",
       })
       return false;
     }
@@ -167,34 +167,22 @@ Page({
           data: that.data.drawdata,
           success: function (res) {
             console.log(res.data)
-            if (res.data ){
-              if (res.data.code == "0"){
+            if (methods.receiveCode(res)) {
                 my.alert({
                   title: '提示',
-                  content: '回收申请成功，1～5个工作日到账',
+                  content: '兑换申请成功，1～5个工作日到账',
                   buttonText: '我知道了',
                   success(){
                     setTimeout(function(){my.navigateBack();},1000);
                   }
                 });
                 that.refresh();
-              }else{
-                my.showToast({
-                  content: res.data.message,
-                })
-              }
-            }else{
-              my.alert({
-                title: '提示',
-                content: res.data.message,
-                buttonText: '我知道了',
-              })
             }
          }
           ,
           fail: function (res) {
               my.showToast({
-                content: '提现失败，请稍后再试',
+                content: '兑换失败，请稍后再试',
                
               })
           }
