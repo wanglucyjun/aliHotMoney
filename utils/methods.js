@@ -209,29 +209,22 @@ function makeSign(){
 //接口返回code码处理
 function receiveCode(res){
   console.log(JSON.stringify("code"+res.data.code))
-  if(res.data.code==101){
+  var code=res.data.code;
+  if(code<100){
+    return true;
+  }else{
+    if(code==103){
+      login.login();
+      return false;
+    }
     my.showToast({
       content: res.data.message, // 文字内容
       success: (res) => {
         
       },
     });
-    return false
+    return false;
   }
-  if(res.data.code==102){
-    my.showToast({
-      content: res.data.message, // 文字内容
-      success: (res) => {
-        
-      },
-    });
-    return false
-  }
-  if(res.data.code==103){
-    login.login()
-    return false
-  }
-return true
 }
 
 //服务器返回500错误提示
@@ -241,7 +234,7 @@ function serverError(res){
             success: (res) => {
               
             },
-          });
+    });
 }
 //创建红包接口请求
 function hongbaoCreate(type,question,power,Money,num,fee,filePath,voiceLength,moneyType,ispublic){

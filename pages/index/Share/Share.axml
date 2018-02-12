@@ -25,7 +25,7 @@
           <view class='answer2ok' a:if="{{hongbaoDetail.state==2}}">活动已完毕</view>
         </view>
         
-        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">摇摇豆余额{{yaoyaodou}},领券会消耗豆，发布券到广场会得豆</view>
+        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">摇摇豆余额{{yaoyaodou}}，领券会消耗豆，发布券到广场会得豆</view>
       </view>
 
       <view class='share_box marginTop'>
@@ -39,7 +39,7 @@
     </view>
 </view>
     <view class='hotMoneyNum'>
-        <view class='fl'>券值{{hongbaoDetail.allMoney}}，已领取{{hongbaoDetail.sendNum}}/{{hongbaoDetail.allNum}}</view>
+        <view class='fl'>券值{{hongbaoDetail.allMoney}}，还可领{{hongbaoDetail.leftNum}}次共{{hongbaoDetail.allNum}}次</view>
         <view class='fr'><navigator class='accuse' url='/pages/mine/accuse/accuse?id={{hongbaoID}}'>投诉</navigator></view>
     </view>
     <block a:for="{{hongbaoDetail.list}}" a:key="url" a:for-index="idx" a:for-item="item" data-idx="{{idx}}">

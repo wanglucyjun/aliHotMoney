@@ -86,7 +86,7 @@ Page({
     }
     if (value > userHongbao.withdrawableMoney || value > userHongbao.oneTimesLimit) {
       my.showToast({
-        content: "兑换额太大",
+        content: "兑换额大于可用券值",
       })
       return false;
     }
@@ -208,5 +208,10 @@ Page({
     var that = this;
     console.log(e.detail.value)
     that.data.drawdata.content = e.detail.value;
+  },
+  allDraw:function(e){
+    console.log(e);
+    e.detail.value=this.data.userHongbao.withdrawableMoney;
+    this.MoneyInput(e);
   }
 })

@@ -173,6 +173,19 @@ Page({
         }
       })
     }
+    else if(this.data.Number>this.data.Money*100){
+      my.alert({
+        title: '提示',
+        content: '每人领取的券值不能小于0.01',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击确定')
+          } else if (res.cancel) {
+            console.log('用户点击取消')
+          }
+        }
+      })
+    }
     else {
       //停止监听武力值
      // my.stopAccelerometer({})

@@ -38,7 +38,7 @@
                   </view>
                   <view >
                     <view class='square-item-title'>{{item.title}}</view>
-                    <view class='square-item-detail' >{{item.money}}券值，可领{{item.num}}次剩{{item.left_num}}次</view>
+                    <view class='square-item-detail' >{{item.money}}券值，共{{item.num}}次已领{{item.num-item.left_num}}次</view>
                   </view>
 
               </view>

@@ -47,9 +47,6 @@ border: 0;
 .setHotMoney_name{
 font-size:40rpx;
 }
-.hotInput{
-height: 50rpx;
-}
 .draw_box{
   margin-top:80rpx;
   margin-left:28rpx;
@@ -106,6 +103,7 @@ height: 50rpx;
 
 }
 .hotInput{
+  height: 50rpx;
   border: 0;
   width:100%;
 }

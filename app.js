@@ -56,33 +56,5 @@ App({
     // }})
     //请求成功
     //watchshake.init()
-  },
-  //获取提现初始值
-  getBalance: function (options) {
-    var that=this
-    my.httpRequest({
-      url: config.hongbaoGetBalanceUrl,
-      data: {
-        token: login.getSession().session.token
-      },
-      success: function (res) {
-        //console.log(res.data)
-        if(res.data.code=="0"){
-           var redata = res.data.data;
-           redata.needQCode=1;
-           redata.needAccount=1;
-           if (redata.qCode!=""){
-             redata.needQCode = 0;
-           }
-           if (redata.account != "") {
-             redata.needAccount = 0;
-           }
-           that.globalData.balanceInfo = redata;
-        }
-      },
-      fail: function (res) {
-        console.log(res.data)
-      },
-    })
-  },
+  }
 })
