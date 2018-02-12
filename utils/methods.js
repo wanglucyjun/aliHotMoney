@@ -287,8 +287,14 @@ success:function(res) {
         
         my.tradePay({
             orderStr: data.package,  // 即上述服务端已经加签的orderSr参数
-              success: (res) => {
+               success: (res) => {
+                console.log(JSON.stringify(res.resultCode))
+                if(res.resultCode==9000){
                 my.navigateTo({url: '/pages/index/Share/Share?id=' + data.hotid,});
+              }
+              else{
+
+              }
             },
             'fail': function (res) {
                console.log(res);

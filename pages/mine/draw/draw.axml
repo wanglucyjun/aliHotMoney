@@ -21,7 +21,7 @@
 
   <view class='account' a:if="{{drawdata.type==2&&userHongbao.needAccount==1}}">
     <view class='account-name fl' >绑定账号：</view>
-    <input  type='text' placeholder='请输入帐号' class='account-value'
+    <input  type='text' placeholder='请输入支付宝账号' class='account-value'
                      onInput='accountInput' ></input>
   </view>
   <view class='disdraw' a:if="{{!canDraw}}" >申请兑换</view>
