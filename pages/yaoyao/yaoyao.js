@@ -39,8 +39,7 @@ Page({
     that.setData({
       moving:true
     });
-    setInterval(that.startMove,5000)
-   // that.startMove();
+    that.startMove();
   },
 
   /**
