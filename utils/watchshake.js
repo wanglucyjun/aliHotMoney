@@ -12,6 +12,7 @@ var watchShake= function() {
         data.isShake=false;
         if(data.lasttime<10){
             data.lasttime=new Date().getTime()
+            console.log("the lasttime is "+data.lasttime)
         }
         my.watchShake({
         success: function() {
@@ -20,7 +21,7 @@ var watchShake= function() {
             var thistime=new Date().getTime();
             var difftime=thistime-data.lasttime;
             data.lasttime=thistime;
-
+            console.log("defalutss is "+data.defalutss.length)
             for(var i=0;i<data.defalutss.length;i++){
                 var tempdata=data.defalutss[i]
                 if(difftime<tempdata[0]){
@@ -41,7 +42,7 @@ var watchShake= function() {
             if(data.lengthss<0){
             data.lengthss=0
             }
-            console.log(data.lengthss)
+            console.log("data length"+data.lengthss)
             console.log(difftime)
 
             var cb = data.func
