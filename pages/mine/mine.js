@@ -26,8 +26,9 @@ Page({
     //检查登录状态
     login.checkSession({
       success: function (userInfo) {
-        console.log('发送摇摇包界面');
+        login.getInitData()
         console.log(JSON.stringify(userInfo));
+        //app.getBalance();
         that.refresh();
       },
       fail:function(){
@@ -36,6 +37,11 @@ Page({
         });
       }
     });
+    that.setData({
+      userHongbao: app.globalData.balanceInfo
+    })
+      console.log("userHongbao is "+JSON.stringify(that.data.userHongbao))
+      that.refresh()
   },
   // tab 切换函数
   changeTab: function (e) {
@@ -57,7 +63,6 @@ Page({
   onShow: function () {
   
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */
