@@ -20,7 +20,7 @@
   <view  class='draw_text5'>兑换券值最小为{{userHongbao.minWithdrawMoney}}，最大为{{userHongbao.oneTimesLimit}}</view>
 
   <view class='account' a:if="{{drawdata.type==2&&userHongbao.needAccount==1}}">
-    <view class='account-name fl' >支付号：</view>
+    <view class='account-name fl' >绑定账号：</view>
     <input  type='text' placeholder='请输入帐号' class='account-value'
                      onInput='accountInput' ></input>
   </view>

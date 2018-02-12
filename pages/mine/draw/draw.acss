@@ -33,6 +33,7 @@ font-size:35rpx;
 }
 .account-value{
 height: 70rpx;
+border: 0;
 }
 .setHotMoney_detail{
   height:110rpx;
@@ -84,7 +85,6 @@ height: 50rpx;
 .draw_text5{
   color:#D95940;
   font-size:30rpx;
-  margin:20rpx;
 }
 .draw{
   height:90rpx;

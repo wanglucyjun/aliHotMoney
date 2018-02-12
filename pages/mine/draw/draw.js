@@ -25,7 +25,7 @@ Page({
    */
   onLoad: function (options) {
     var that=this
-    that.data.drawdata.type = 1;
+    that.data.drawdata.type = 2;
     //检查登录状态
     login.checkSession({
       success: function (userInfo) {
@@ -150,6 +150,16 @@ Page({
     }
     console.log(drawdata);
     drawdata.type=2
+
+    if (userHongbao.needAccount==0){
+        that.data.drawdata.content = userHongbao.account;
+      }
+      if (!that.data.drawdata.content||that.data.drawdata.content==""){
+        my.showToast({
+          content: "请输入账号！",
+        })
+        return;
+   }
     //此处检验用户授权
     console.log('4');
     that.getMoney();
@@ -189,5 +199,10 @@ Page({
         })
       }
     })
+  },
+  accountInput:function(e){
+    var that = this;
+    console.log(e.detail.value)
+    that.data.drawdata.content = e.detail.value;
   }
 })
