@@ -237,7 +237,7 @@ function serverError(res){
     });
 }
 //创建红包接口请求
-function hongbaoCreate(type,question,power,Money,num,fee,filePath,voiceLength,moneyType,ispublic){
+function hongbaoCreate(type,question,power,Money,num,fee,filePath,voiceLength,moneyType,ispublic,title){
   console.log('create')
   var that = this
 my.httpRequest({
@@ -255,8 +255,9 @@ my.httpRequest({
     filePath:filePath,
     voiceLength: voiceLength,
     usebalance:get_Use_Balance(type),
-    award_type: moneyType
-  },
+    award_type: moneyType,
+    title:title
+   },
 
 success:function(res) {
     console.log(res.data)

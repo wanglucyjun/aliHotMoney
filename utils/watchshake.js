@@ -17,40 +17,43 @@ var watchShake= function() {
 
         my.watchShake({
         success: function() {
+            try {
             data.isShake=true;
             //watchShake();
-            console.log("the lasttime is "+data.lasttime)
-            var thistime=new Date().getTime();
-            var difftime=thistime-data.lasttime;
-            data.lasttime=thistime;
-            console.log("the lasttime is "+data.lasttime)
-            console.log("defalutss is "+data.defalutss.length)
-            for(var i=0;i<data.defalutss.length;i++){
-                var tempdata=data.defalutss[i]
-                if(difftime<tempdata[0]){
-                    data.lengthss+=tempdata[1];
-                    break;
+                console.log("the lasttime is "+data.lasttime)
+                var thistime=new Date().getTime();
+                var difftime=thistime-data.lasttime;
+                data.lasttime=thistime;
+                console.log("the lasttime is "+data.lasttime)
+                console.log("defalutss is "+data.defalutss.length)
+                for(var i=0;i<data.defalutss.length;i++){
+                    var tempdata=data.defalutss[i]
+                    if(difftime<tempdata[0]){
+                        data.lengthss+=tempdata[1];
+                        break;
+                    }
                 }
-            }
 
-            if (data.lengthss < 0) {
-                data.lengthss = 0;
-            } else {
-                data.lengtharr.shift();
-                data.lengtharr.push();
-            }
+                if (data.lengthss < 0) {
+                    data.lengthss = 0;
+                } else {
+                    data.lengtharr.shift();
+                    data.lengtharr.push();
+                }
 
 
+                
+                if(data.lengthss<0){
+                    data.lengthss=0
+                }
+                console.log("data length"+data.lengthss)
+                console.log(difftime)
             
-            if(data.lengthss<0){
-            data.lengthss=0
+                var cb = data.func
+                cb && typeof cb == "function" && cb(data.lengthss)
+            }catch(err){
+                
             }
-            console.log("data length"+data.lengthss)
-            console.log(difftime)
-
-            var cb = data.func
-            cb && typeof cb == "function" && cb(data.lengthss)
-
             
         }
         });

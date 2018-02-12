@@ -123,7 +123,7 @@ Page({
     }
     console.log("chargefee is "+chargefee)
     var fee = (sendfee + chargefee).toFixed(2);
-    var balance = that.data.Money * 1 + fee * 1
+    var balance = (that.data.Money * 1 + fee * 1).toFixed(2);
     if (balance > app.globalData.balanceInfo.allMoney) {
       balance = app.globalData.balanceInfo.allMoney
     }
@@ -187,12 +187,13 @@ Page({
       })
     }
     else {
-      //停止监听武力值
+     //停止监听武力值
      // my.stopAccelerometer({})
-     //watchshake.stopMove();
-
-      methods.hongbaoCreate(1, '', that.data.powerset, that.data.Money, that.data.Number, that.data.fuwufee, '', '', that.data.moneyType, that.data.ispublic)
-     
+      watchshake.stopMove();
+      var tipArray = methods.getModel(0).tips;
+      var num = Math.round(Math.random() * (tipArray.length - 1) + 0);
+      var title = tipArray[num]
+      methods.hongbaoCreate(1, '', that.data.powerset, that.data.Money, that.data.Number, that.data.fuwufee, '', '', that.data.moneyType, that.data.ispublic,title)
       console.log(e.detail.value);
     }
   },

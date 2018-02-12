@@ -37,11 +37,6 @@ my.getAuthCode({
           var ui={};
           ui.avatarUrl=userInfo.avatar;
           ui.nickName=userInfo.nickName;
-          ui.gender='';
-          ui.city='';
-          ui.province='';
-          ui.country='';
-          ui.language='zh_CN';
 
           callback(null, {
             code: result1.authCode,
