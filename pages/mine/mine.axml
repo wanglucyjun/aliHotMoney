@@ -10,7 +10,7 @@
       <view class='header_name'>{{userInfo.nickName}}</view>
       <view class='header_yue'>我的券值:{{userHongbao.allMoney}}</view>
       <view class='header_yue'>可用券值:{{userHongbao.withdrawableMoney}}</view>
-      <!--<view class='header_yue'>摇摇豆值:{{userHongbao.yaoyaodou}}</view>-->
+      <view class='header_yue'>摇摇豆值:{{userHongbao.yaoyaodou}}</view>
     </view>
     <view class='header_right fr'  onTap="getMoney">
         <image src='../image/hot.png' mode='widthFix' class='hotMoney_tu'></image>
