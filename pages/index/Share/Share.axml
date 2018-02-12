@@ -24,14 +24,12 @@
           </view>
           <view class='answer2ok' a:if="{{hongbaoDetail.state==2}}">活动已完毕</view>
         </view>
-        
-        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">摇摇豆余额{{yaoyaodou}}，领券会消耗豆，发布券到广场会得豆</view>
+        <view class="hb-public" a:if="{{hongbaoDetail.is_public==1}}">摇摇豆余额{{yaoyaodou}}，领券会消耗{{hongbaoDetail.used_dou}}豆，发布券到广场会得豆</view>
       </view>
 
       <view class='share_box marginTop'>
         
         <view class="caozuoShare">
-            <!--<view class=''><text class="iconfont icon-tixian"></text> 去提现</view>-->
             <view class=''><text class="iconfont1 icon-hongbao1" onTap="againSend">再发一个</text> </view>
              <view class=''><text class="iconfont1 icon-fenleiqita" onTap="toIndex">回首页</text> </view>
             <view class=''><text class="iconfont1 icon-fenxiang" onTap="toShare">去转发</text> </view>

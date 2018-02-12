@@ -142,7 +142,9 @@ Page({
           if(that.data.hongbaoDetail.is_public==1){
             methods.getBalance(
             { 
+              
               success:function(balanceInfo){
+              console.log('test');
               that.setData({
                 yaoyaodou: app.globalData.balanceInfo.yaoyaodou
                 })
@@ -205,6 +207,8 @@ Page({
   },
   //开始摇手机
   startMove: function () {
+    
+
     console.log("ShareStart");
     var that = this
     that.setData({

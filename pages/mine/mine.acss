@@ -173,7 +173,7 @@
 }
 .sended-list-item-center{
   padding-top: 10rpx;
-  width:300rpx;
+  width:500rpx;
   height:85rpx;
 }
 .sended-list-item-right{
