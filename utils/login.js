@@ -194,7 +194,6 @@ var checkSession = function (options){
       //Session.set(session);
 //
 
-
       if (session) {
         options.success(session);
       } else {
@@ -208,5 +207,6 @@ module.exports = {
   login: login,
   checkSession: checkSession,
   getSession: Session.get,
+  clearSession:Session.clear,
   getInitData: init.getInitData
 };
