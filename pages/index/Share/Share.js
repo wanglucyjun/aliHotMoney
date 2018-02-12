@@ -162,6 +162,8 @@ Page({
           success: function (res) {
             console.log(res)
             if (methods.receiveCode(res)) {
+
+              console.log(JSON.stringify(res))
               my.showToast({
                 title: '提示',
                 content: '您领取了'+res.data.data.money,

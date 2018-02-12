@@ -21,7 +21,11 @@ var LoginError = (function () {
  */
 var getMyLoginResult = function getLoginCode(callback) {
   console.log('getMyLoginResult')
-  my.getAuthCode({
+
+my.getAuthCode({
+    scopes: 'auth_base',
+    success:function(result1){
+my.getAuthCode({
     scopes: 'auth_user',
     success: function (loginResult) {
      
@@ -40,7 +44,8 @@ var getMyLoginResult = function getLoginCode(callback) {
           ui.language='zh_CN';
 
           callback(null, {
-            code: loginResult.authCode,
+            code: result1.authCode,
+            authCode:loginResult.authCode,
             userInfo: ui,
           });
         },
@@ -61,6 +66,17 @@ var getMyLoginResult = function getLoginCode(callback) {
       callback(error, null);
     },
   });
+    },
+    fail:function (loginError) {
+      var error = new LoginError('支付宝登录失败，请检查网络状态');
+      error.detail = loginError;
+      callback(error, null);
+    }
+});
+
+
+
+  
 };
 var noop = function noop() { };
 var defaultOptions = {
