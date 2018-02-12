@@ -33,6 +33,7 @@
         <view class="caozuoShare">
             <!--<view class=''><text class="iconfont icon-tixian"></text> 去提现</view>-->
             <view class=''><text class="iconfont1 icon-hongbao1" onTap="againSend">再发一个</text> </view>
+             <view class=''><text class="iconfont1 icon-fenleiqita" onTap="toIndex">回首页</text> </view>
             <view class=''><text class="iconfont1 icon-fenxiang" onTap="toShare">去转发</text> </view>
         </view>
       </view>

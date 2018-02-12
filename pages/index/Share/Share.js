@@ -245,6 +245,11 @@ Page({
       }
     })
   },
+  toIndex:function(){
+     my.navigateTo({
+       url: '../../index/index',
+     })
+  },
   toShare:function(){
      my.navigateTo({
        url: 'ShareHotMoney?id=' + this.data.hongbaoID,

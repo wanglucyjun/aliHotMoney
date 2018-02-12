@@ -2,7 +2,7 @@
 <view class='head'>
   <view class='head_content'>
     <view class='Money_Number fl'>
-          <view class='Money_name'>今日访问量</view>
+          <view class='Money_name'>今日创建券数</view>
           <view class='money_num'>{{receivedHongbao.todayPeople}}</view>
     </view>
     <view class='Money_Number fl'>
