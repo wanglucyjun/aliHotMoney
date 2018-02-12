@@ -9,12 +9,14 @@ var data= {
 };
 var watchShake= function() {
     if(data.isShake){
+        data.isShake=false;
         if(data.lasttime<10){
             data.lasttime=new Date().getTime()
         }
         my.watchShake({
         success: function() {
-            watchShake();
+            data.isShake=true;
+            //watchShake();
             var thistime=new Date().getTime();
             var difftime=thistime-data.lasttime;
             data.lasttime=thistime;
@@ -26,15 +28,6 @@ var watchShake= function() {
                     break;
                 }
             }
-
-            // var num=0;
-            // var t1=difftime/1000;
-            // if(t1<=1){
-            //     num=(1-t1)*5;
-            // }else{
-            //     num=(1-t1)*2;
-            // }
-            //data.lengthss+=num;
 
             if (data.lengthss < 0) {
                 data.lengthss = 0;
@@ -58,6 +51,7 @@ var watchShake= function() {
         }
         });
     }
+    setTimeout(function(){watchShake();},200)
 };
 
 
@@ -67,8 +61,11 @@ var startMove=function(func) {
     data.lasttime=0;
     data.lengthss=2;
     data.lengtharr=[1,2,3,4,5,6,7,8,9,10];
-    watchShake();
+    
     console.log(JSON.stringify(data));
+    setTimeout(function(){watchShake();},0)
+
+
 };
 var stopMove=function() {
 console.log('stopMove')
